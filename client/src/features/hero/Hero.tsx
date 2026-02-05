@@ -1,7 +1,26 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
-export default function Hero() {
+interface HeroProps {
+  headline?: string;
+  subheadline?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  ctaOnClick?: () => void;
+}
+
+export default function Hero({
+  headline = "EasLegal Partners",
+  subheadline = "One of India’s most trusted legal and financial firms for founders and startups.",
+  ctaText = "Start a Conversation",
+  ctaHref,
+  ctaOnClick,
+}: HeroProps) {
+  // Split headline to preserve the styling of the two parts (e.g. "EasLegal" and "Partners")
+  const parts = headline.split(" ");
+  const firstPart = parts[0];
+  const secondPart = parts.slice(1).join(" ");
+
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#F0EEE9]">
       {/* Background Layer: Image or Video */}
@@ -23,23 +42,38 @@ export default function Hero() {
           {/* Negative space-y for tight vertical relationship */}
           <h1 className="flex flex-col items-start justify-start leading-[1.1] space-y-[-0.2em]">
             <span className="text-7xl md:text-8xl lg:text-9xl font-display font-black text-ink tracking-[-0.05em]">
-              EasLegal
+              {firstPart}
             </span>
-            <span className="text-7xl md:text-8xl lg:text-9xl font-serif italic text-[#0D9488] ml-12 md:ml-24 tracking-normal">
-              Partners
-            </span>
+            {secondPart && (
+              <span className="text-7xl md:text-8xl lg:text-9xl font-serif italic text-[#0D9488] ml-12 md:ml-24 tracking-normal">
+                {secondPart}
+              </span>
+            )}
           </h1>
 
           <p className="text-xl md:text-2xl font-sans text-ink/70 font-medium max-w-xl leading-relaxed">
-            One of India’s most trusted legal and financial firms for founders and startups.
+            {subheadline}
           </p>
 
           {/* Accessible Actions - Balanced Pairing & Parity */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-6 pt-4">
             {/* Primary Button: Soft Shadow */}
-            <Button className="bg-[#0D9488] text-white transition-all duration-500 shadow-lg hover:shadow-xl hover:shadow-[#0D9488]/20 hover:scale-105 px-10 h-16 rounded-full font-bold text-lg tracking-wide group">
-              Start a Conversation
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <Button
+              asChild={!!ctaHref}
+              onClick={ctaOnClick}
+              className="bg-[#0D9488] text-white transition-all duration-500 shadow-lg hover:shadow-xl hover:shadow-[#0D9488]/20 hover:scale-105 px-10 h-16 rounded-full font-bold text-lg tracking-wide group"
+            >
+              {ctaHref ? (
+                <a href={ctaHref}>
+                  {ctaText}
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </a>
+              ) : (
+                <>
+                  {ctaText}
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </>
+              )}
             </Button>
 
             {/* Secondary Button: Inverted Hover, Button Parity (h-16) */}
