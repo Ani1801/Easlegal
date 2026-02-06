@@ -75,27 +75,27 @@ const TeamSection = () => {
   ];
 
   return (
-    <section className="bg-white py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <section className="bg-white py-24">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
         {/* Section Header */}
-        <div className="mb-10">
-          <h2 className="text-3xl font-bold text-blue-900 mb-2 text-balance">
+        <div className="mb-16 max-w-2xl">
+          <h2 className="text-5xl md:text-6xl font-display font-black text-[#141414] mb-4 text-balance tracking-tighter">
             Meet Our Founding Team
           </h2>
-          <p className="text-gray-600">
+          <p className="text-[#141414]/60 font-sans text-lg leading-relaxed">
             Experienced professionals dedicated to your success
           </p>
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {teamMembers.map((member) => (
             <div
               key={member.id}
-              className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 border border-gray-200 hover:border-amber-400 flex flex-col"
+              className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 border border-[#141414]/10 hover:border-[#0D9488]/30 flex flex-col"
             >
               {/* Image Container */}
-              <div className="relative h-56 overflow-hidden bg-gradient-to-br from-gray-200 to-gray-300">
+              <div className="relative h-56 overflow-hidden bg-gradient-to-br from-[#F0EEE9] to-[#E6E4DD]">
                 <img
                   src={member.image || "/placeholder.svg"}
                   alt={member.name}
@@ -104,28 +104,28 @@ const TeamSection = () => {
               </div>
 
               {/* Content */}
-              <div className="flex-1 p-5 space-y-3">
+              <div className="flex-1 p-6 space-y-4">
                 {/* Name & Title */}
                 <div>
-                  <h3 className="text-lg font-bold text-blue-900">
+                  <h3 className="text-lg font-display font-bold text-[#141414]">
                     {member.name}
                   </h3>
-                  <p className="text-amber-400 font-semibold text-xs mt-0.5">
+                  <p className="text-[#B59E7A] font-semibold text-xs mt-1 tracking-[0.1em]">
                     {member.title}
                   </p>
                 </div>
 
                 {/* Short Bio */}
-                <p className="text-gray-600 text-xs leading-relaxed line-clamp-2">
+                <p className="text-[#141414]/60 text-xs leading-relaxed line-clamp-2">
                   {member.bio.substring(0, 80)}...
                 </p>
 
                 {/* Top 3 Expertise Tags */}
-                <div className="flex flex-wrap gap-1">
+                <div className="flex flex-wrap gap-2">
                   {member.expertise.slice(0, 3).map((skill, idx) => (
                     <span
                       key={idx}
-                      className="text-xs bg-blue-100 text-blue-900 px-2 py-1 rounded-full font-medium border border-blue-200"
+                      className="text-xs bg-[#F0EEE9] text-[#141414] px-3 py-1 rounded-full font-medium border border-[#0D9488]/20"
                     >
                       {skill}
                     </span>
@@ -133,14 +133,14 @@ const TeamSection = () => {
                 </div>
 
                 {/* Divider */}
-                <div className="h-px bg-gray-200" />
+                <div className="h-px bg-[#141414]/10" />
 
                 {/* Contact Links */}
-                <div className="space-y-2">
+                <div className="space-y-3">
                   <div className="flex gap-2">
                     <a
                       href={`mailto:${member.email}`}
-                      className="flex-1 flex items-center justify-center gap-1 bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-900 py-2 rounded-lg transition-colors duration-300 group/link"
+                      className="flex-1 flex items-center justify-center gap-2 bg-[#F0EEE9] hover:bg-[#0D9488] hover:text-white border border-[#0D9488]/20 text-[#141414] py-2.5 rounded-lg transition-all duration-300 group/link"
                       title={member.email}
                     >
                       <Mail size={14} />
@@ -148,7 +148,7 @@ const TeamSection = () => {
                     </a>
                     <a
                       href={`tel:${member.phone}`}
-                      className="flex-1 flex items-center justify-center gap-1 bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-900 py-2 rounded-lg transition-colors duration-300 group/link"
+                      className="flex-1 flex items-center justify-center gap-2 bg-[#F0EEE9] hover:bg-[#0D9488] hover:text-white border border-[#0D9488]/20 text-[#141414] py-2.5 rounded-lg transition-all duration-300 group/link"
                       title={member.phone}
                     >
                       <Phone size={14} />
@@ -162,7 +162,7 @@ const TeamSection = () => {
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-1 bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-900 py-2 rounded-lg transition-colors duration-300 text-xs font-medium"
+                      className="flex-1 flex items-center justify-center gap-2 bg-[#F0EEE9] hover:bg-[#0D9488] hover:text-white border border-[#0D9488]/20 text-[#141414] py-2.5 rounded-lg transition-all duration-300 text-xs font-medium"
                       title="LinkedIn"
                     >
                       <Linkedin size={13} />
@@ -172,7 +172,7 @@ const TeamSection = () => {
                       href={member.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-1 bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-900 py-2 rounded-lg transition-colors duration-300 text-xs font-medium"
+                      className="flex-1 flex items-center justify-center gap-2 bg-[#F0EEE9] hover:bg-[#B59E7A] hover:text-white border border-[#B59E7A]/20 text-[#141414] py-2.5 rounded-lg transition-all duration-300 text-xs font-medium"
                       title="Instagram"
                     >
                       <Instagram size={13} />

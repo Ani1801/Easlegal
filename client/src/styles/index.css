@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -64,9 +66,10 @@
 }
 
 @theme inline {
-  /* Applying your Plus Jakarta and Inter strategy */
-  --font-sans: 'Inter', 'ui-sans-serif', 'system-ui';
-  --font-display: 'Plus Jakarta Sans', 'Inter', 'sans-serif';
+  /* Typographic Duo: Plus Jakarta Sans for UI, Playfair Display for Headlines */
+  --font-sans: 'Plus Jakarta Sans', 'ui-sans-serif', 'system-ui';
+  --font-serif: 'Playfair Display', 'Georgia', 'serif';
+  --font-display: 'Plus Jakarta Sans', 'ui-sans-serif', 'system-ui';
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -89,13 +92,30 @@
   h4,
   h5,
   h6 {
-    @apply font-display font-extrabold tracking-tight;
+    @apply font-display font-black tracking-tighter;
   }
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
     /* This makes your text size beautifully responsive across devices */
     font-size: clamp(1rem, 1vw + 0.5rem, 1.125rem);
+  }
+
+  /* Semantic text styles */
+  .text-ink {
+    @apply text-[#141414];
+  }
+
+  .text-paper {
+    @apply text-[#F0EEE9];
+  }
+
+  .text-brass {
+    @apply text-[#B59E7A];
+  }
+
+  .text-primary-teal {
+    @apply text-[#0D9488];
   }
 }
 

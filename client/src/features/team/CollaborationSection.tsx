@@ -24,38 +24,38 @@ const CollaborationSection = () => {
   ];
 
   return (
-    <section className="bg-white/50 py-20 overflow-hidden border-b border-ink/5 relative">
+    <section className="bg-white/50 py-24 overflow-hidden border-b border-[#141414]/5 relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
 
         {/* Header Row */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
-          <h2 className="text-5xl md:text-6xl font-display font-bold text-ink leading-tight tracking-tight text-center md:text-left">
+          <h2 className="text-5xl md:text-6xl font-display font-black text-[#141414] leading-tight tracking-tighter text-center md:text-left">
             Collaborating with Industry Leaders
           </h2>
 
           {/* Google Trust Badge (Right Aligned) */}
-          <div className="flex items-center gap-3 bg-white/60 px-5 py-2.5 rounded-full border border-ink/5 shadow-sm">
+          <div className="flex items-center gap-3 bg-white/60 px-5 py-2.5 rounded-full border border-[#141414]/5 shadow-sm">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
               alt="Google"
               className="w-5 h-5 opacity-80"
             />
-            <div className="h-4 w-[1px] bg-ink/10" />
-            <div className="flex items-center gap-2 text-[#C9A46B]">
-              <span className="font-display font-bold text-sm text-ink">4.9</span>
+            <div className="h-4 w-[1px] bg-[#141414]/10" />
+            <div className="flex items-center gap-2 text-[#B59E7A]">
+              <span className="font-display font-bold text-sm text-[#141414]">4.9</span>
               <div className="flex gap-0.5">
-                <Star size={12} className="fill-[#C9A46B] text-[#C9A46B]" />
-                <Star size={12} className="fill-[#C9A46B] text-[#C9A46B]" />
-                <Star size={12} className="fill-[#C9A46B] text-[#C9A46B]" />
-                <Star size={12} className="fill-[#C9A46B] text-[#C9A46B]" />
-                <Star size={12} className="fill-[#C9A46B] text-[#C9A46B]" />
+                <Star size={12} className="fill-[#B59E7A] text-[#B59E7A]" />
+                <Star size={12} className="fill-[#B59E7A] text-[#B59E7A]" />
+                <Star size={12} className="fill-[#B59E7A] text-[#B59E7A]" />
+                <Star size={12} className="fill-[#B59E7A] text-[#B59E7A]" />
+                <Star size={12} className="fill-[#B59E7A] text-[#B59E7A]" />
               </div>
             </div>
           </div>
         </div>
 
         {/* The "Vibrant Pop" Marquee Shelf */}
-        <div className="relative w-full bg-white/40 backdrop-blur-md rounded-2xl border border-ink/5 overflow-hidden">
+        <div className="relative w-full bg-white/40 backdrop-blur-md rounded-2xl border border-[#141414]/5 overflow-hidden">
 
           {/* Inner Divider */}
           <div className="absolute top-0 left-6 right-6 h-[1px] bg-ink/5 z-10" />

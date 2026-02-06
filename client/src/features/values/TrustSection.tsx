@@ -50,17 +50,17 @@ const TrustSection = () => {
   ];
 
   return (
-    <section id="trust" className="bg-[#F0EEE9] py-20 border-t border-ink/5 relative overflow-hidden">
+    <section id="trust" className="bg-[#F0EEE9] py-24 border-t border-[#141414]/5 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
 
         {/* Dedicated Header Row */}
         <div className="flex flex-col md:flex-row items-center justify-between mb-16 gap-8">
-          <h2 className="text-5xl font-display font-medium text-ink tracking-tighter text-center md:text-left">
+          <h2 className="text-5xl font-display font-black text-[#141414] tracking-tighter text-center md:text-left">
             Trust We've Earned
           </h2>
 
           {/* Google Badge */}
-          <div className="flex items-center gap-4 bg-white/40 backdrop-blur-md border border-ink/5 px-6 py-3 rounded-full shadow-sm hover:bg-white/60 transition-all duration-300 select-none">
+          <div className="flex items-center gap-4 bg-white/40 backdrop-blur-md border border-[#141414]/5 px-6 py-3 rounded-full shadow-sm hover:bg-white/60 transition-all duration-300 select-none">
             <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm p-1.5">
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
@@ -70,10 +70,10 @@ const TrustSection = () => {
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-display font-bold text-lg text-ink leading-none mt-0.5">4.9/5.0</span>
+                <span className="font-display font-bold text-lg text-[#141414] leading-none mt-0.5">4.9/5.0</span>
                 <div className="flex gap-0.5">
                   {[1, 2, 3, 4, 5].map((i) => (
-                    <Star key={i} size={12} className="fill-[#C9A46B] text-[#C9A46B]" />
+                    <Star key={i} size={12} className="fill-[#B59E7A] text-[#B59E7A]" />
                   ))}
                 </div>
               </div>
@@ -86,29 +86,29 @@ const TrustSection = () => {
           {reviews.map((review) => (
             <div
               key={review.id}
-              className="group relative bg-transparent p-6 border-b border-ink/10 hover:border-ink/20 transition-all duration-300"
+              className="group relative bg-transparent p-6 border-b border-[#141414]/10 hover:border-[#141414]/20 transition-all duration-300"
             >
               {/* Initials & Stars */}
               <div className="flex items-center justify-between mb-6">
-                <div className="w-10 h-10 rounded-full border border-[#C9A46B]/20 flex items-center justify-center bg-[#F0EEE9]">
-                  <span className="font-serif font-bold text-lg text-[#C9A46B]">{review.initials}</span>
+                <div className="w-10 h-10 rounded-full border border-[#B59E7A]/20 flex items-center justify-center bg-[#F0EEE9]">
+                  <span className="font-serif font-bold text-lg text-[#B59E7A]">{review.initials}</span>
                 </div>
                 <div className="flex gap-0.5">
                   {[1, 2, 3, 4, 5].map((i) => (
-                    <Star key={i} size={10} className="fill-[#C9A46B] text-[#C9A46B]" />
+                    <Star key={i} size={10} className="fill-[#B59E7A] text-[#B59E7A]" />
                   ))}
                 </div>
               </div>
 
               {/* Content */}
-              <p className="text-sm text-ink/70 font-sans leading-relaxed mb-6 min-h-[5rem]">
+              <p className="text-sm text-[#141414]/70 font-sans leading-relaxed mb-6 min-h-[5rem]">
                 "{review.content}"
               </p>
 
               {/* Author Footer */}
               <div>
-                <p className="font-bold text-ink text-sm">{review.author}</p>
-                <p className="text-[10px] uppercase tracking-widest text-[#C9A46B] font-bold mt-1">
+                <p className="font-bold text-[#141414] text-sm">{review.author}</p>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-[#B59E7A] font-bold mt-1">
                   {review.role}
                 </p>
               </div>
@@ -118,9 +118,9 @@ const TrustSection = () => {
 
         {/* Bottom Link */}
         <div className="mt-16 text-center">
-          <a href="#" className="group inline-flex items-center text-primary font-bold text-sm tracking-wide transition-all duration-300">
+          <a href="#" className="group inline-flex items-center text-[#0D9488] font-bold text-sm tracking-wide transition-all duration-300">
             View All 500+ Reviews
-            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-primary absolute bottom-0 left-0"></span>
+            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-[#0D9488] absolute bottom-0 left-0"></span>
             <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />
           </a>
         </div>

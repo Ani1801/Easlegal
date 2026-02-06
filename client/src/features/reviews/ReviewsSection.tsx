@@ -53,14 +53,14 @@ const ReviewsSection = () => {
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <section id="reviews" className="relative bg-white/50 py-20 overflow-hidden border-y border-ink/5">
+    <section id="reviews" className="relative bg-white/50 py-24 overflow-hidden border-y border-[#141414]/5">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full relative z-10 h-full flex flex-col justify-center">
 
         {/* Section Heading - Compact */}
         <div className="mb-6 shrink-0">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black tracking-tighter text-ink leading-[1.0]">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black tracking-tighter text-[#141414] leading-[1.0]">
             The Founders <br />
-            <span className="italic text-foreground/70 font-serif">Behind the Success.</span>
+            <span className="italic text-[#141414]/70 font-serif">Behind the Success.</span>
           </h2>
         </div>
 
@@ -92,16 +92,16 @@ const ReviewsSection = () => {
 
             <div className="space-y-6">
               {/* The Pull Quote */}
-              <blockquote className="text-2xl lg:text-3xl font-display italic leading-tight text-ink line-clamp-5">
+              <blockquote className="text-2xl lg:text-3xl font-display italic leading-tight text-[#141414] line-clamp-5">
                 {activeStory.quote}
               </blockquote>
 
               {/* Founder Details */}
-              <div className="space-y-1 border-l-2 border-[#C9A46B] pl-4 py-1">
-                <h4 className="text-lg font-bold text-ink tracking-tight">
+              <div className="space-y-1 border-l-2 border-[#B59E7A] pl-4 py-1">
+                <h4 className="text-lg font-bold text-[#141414] tracking-tight">
                   {activeStory.founderName}
                 </h4>
-                <p className="text-base text-[#C9A46B] font-medium font-sans">
+                <p className="text-base text-[#B59E7A] font-medium font-sans">
                   {activeStory.role}, {activeStory.company}
                 </p>
               </div>

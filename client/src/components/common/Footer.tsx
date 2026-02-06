@@ -8,16 +8,16 @@ const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="bg-blue-950 text-white pt-20 pb-10">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <footer className="bg-[#141414] text-white pt-20 pb-10">
+            <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
 
                     {/* Column 1: Brand & About */}
                     <div className="space-y-6">
                         <Link to="/" className="inline-block">
-                            <span className="text-2xl font-bold text-white tracking-tight">EasLegal</span>
+                            <span className="text-2xl font-display font-black text-white tracking-tight">EasLegal<span className="text-[#0D9488]">.</span></span>
                         </Link>
-                        <p className="text-blue-100/80 text-sm leading-relaxed max-w-xs">
+                        <p className="text-white/70 text-sm leading-relaxed max-w-xs font-sans">
                             Empowering startups and founders with comprehensive legal, financial, and compliance solutions. Your growth is our priority.
                         </p>
                         <div className="flex items-center gap-4">
@@ -30,8 +30,8 @@ const Footer = () => {
 
                     {/* Column 2: Quick Links */}
                     <div>
-                        <h3 className="text-lg font-semibold mb-6 flex items-center gap-2">
-                            <div className="w-1 h-4 bg-amber-400 rounded-full"></div>
+                        <h3 className="text-lg font-display font-bold mb-6 flex items-center gap-2">
+                            <div className="w-1 h-4 bg-[#B59E7A] rounded-full"></div>
                             Quick Links
                         </h3>
                         <ul className="space-y-4">
@@ -45,8 +45,8 @@ const Footer = () => {
 
                     {/* Column 3: Services */}
                     <div>
-                        <h3 className="text-lg font-semibold mb-6 flex items-center gap-2">
-                            <div className="w-1 h-4 bg-amber-400 rounded-full"></div>
+                        <h3 className="text-lg font-display font-bold mb-6 flex items-center gap-2">
+                            <div className="w-1 h-4 bg-[#B59E7A] rounded-full"></div>
                             Services
                         </h3>
                         <ul className="space-y-4">
@@ -60,31 +60,31 @@ const Footer = () => {
 
                     {/* Column 4: Newsletter & Contact */}
                     <div className="space-y-6">
-                        <h3 className="text-lg font-semibold flex items-center gap-2">
-                            <div className="w-1 h-4 bg-amber-400 rounded-full"></div>
+                        <h3 className="text-lg font-display font-bold flex items-center gap-2">
+                            <div className="w-1 h-4 bg-[#B59E7A] rounded-full"></div>
                             Stay Updated
                         </h3>
-                        <p className="text-blue-100/80 text-sm">
+                        <p className="text-white/70 text-sm font-sans">
                             Subscribe to our newsletter for the latest legal updates and startup insights.
                         </p>
                         <form className="flex gap-2">
                             <Input
                                 type="email"
                                 placeholder="Enter your email"
-                                className="bg-blue-900/50 border-blue-800 text-white placeholder:text-blue-300/50 focus:border-amber-400 h-10"
+                                className="bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:border-[#0D9488] h-10"
                             />
-                            <Button size="icon" className="bg-amber-400 hover:bg-amber-500 text-blue-900 shrink-0 h-10 w-10">
+                            <Button size="icon" className="bg-[#0D9488] hover:bg-[#0D9488]/90 text-white shrink-0 h-10 w-10">
                                 <ArrowRight size={18} />
                             </Button>
                         </form>
 
                         <div className="pt-4 space-y-3">
-                            <div className="flex items-start gap-3 text-sm text-blue-100/80">
-                                <MapPin size={16} className="mt-1 text-amber-400 shrink-0" />
+                            <div className="flex items-start gap-3 text-sm text-white/70 font-sans">
+                                <MapPin size={16} className="mt-1 text-[#B59E7A] shrink-0" />
                                 <span>Mumbai | Delhi | Bangalore | GIFT City</span>
                             </div>
-                            <div className="flex items-center gap-3 text-sm text-blue-100/80">
-                                <Mail size={16} className="text-amber-400 shrink-0" />
+                            <div className="flex items-center gap-3 text-sm text-white/70 font-sans">
+                                <Mail size={16} className="text-[#B59E7A] shrink-0" />
                                 <span>support@easlegal.in</span>
                             </div>
                         </div>
@@ -92,7 +92,7 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="pt-8 border-t border-blue-900/50 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-blue-200/60">
+                <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/50 font-sans">
                     <p>&copy; {currentYear} EasLegal Partners. All rights reserved.</p>
                     <div className="flex gap-8">
                         <Link to="#" className="hover:text-white transition-colors">Privacy Policy</Link>
@@ -109,7 +109,7 @@ const Footer = () => {
 const SocialIcon = ({ icon, href }: { icon: React.ReactNode; href: string }) => (
     <a
         href={href}
-        className="w-10 h-10 rounded-full bg-blue-900/50 flex items-center justify-center text-blue-200 hover:bg-amber-400 hover:text-blue-900 transition-all duration-300"
+        className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#0D9488] hover:text-white transition-all duration-300"
     >
         {icon}
     </a>
@@ -119,9 +119,9 @@ const FooterLink = ({ href, label }: { href: string; label: string }) => (
     <li>
         <Link
             to={href}
-            className="text-blue-100/70 hover:text-amber-400 text-sm transition-colors duration-200 flex items-center gap-2 group"
+            className="text-white/70 hover:text-[#0D9488] text-sm font-sans transition-colors duration-200 flex items-center gap-2 group"
         >
-            <span className="w-1 h-1 bg-amber-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+            <span className="w-1 h-1 bg-[#B59E7A] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
             {label}
         </Link>
     </li>

@@ -106,10 +106,10 @@ const WhatWeDoSection = () => {
   ];
 
   return (
-    <section id="what-we-do" className="relative bg-background py-20">
+    <section id="what-we-do" className="relative bg-white py-24">
       {/* Section Heading - Spacing Reduced */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 mb-6">
-        <h2 className="text-5xl md:text-6xl font-display font-bold text-foreground leading-tight">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 mb-12">
+        <h2 className="text-5xl md:text-6xl font-display font-black text-[#141414] leading-tight tracking-tighter">
           What we do
         </h2>
       </div>
@@ -118,8 +118,8 @@ const WhatWeDoSection = () => {
         <div
           key={category.id}
           className={cn(
-            "py-16 border-b border-border/40 transition-colors duration-700",
-            index % 2 === 0 ? "bg-background" : "bg-paper/10"
+            "py-20 border-b border-[#141414]/5 transition-colors duration-700",
+            index % 2 === 0 ? "bg-white" : "bg-[#F0EEE9]/30"
           )}
         >
           <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
@@ -128,17 +128,17 @@ const WhatWeDoSection = () => {
               {/* Sticky Sidebar Header (Cols 1-4) - Adjusted Top Offset */}
               <div className="lg:col-span-4 lg:sticky lg:top-24 self-start space-y-6 transition-opacity duration-500">
                 <div className="flex items-center gap-3">
-                  <div className="h-[2px] w-8 bg-brass" />
-                  <span className="text-brass font-bold tracking-[0.2em] text-xs uppercase">
+                  <div className="h-[2px] w-8 bg-[#B59E7A]" />
+                  <span className="text-[#B59E7A] font-bold tracking-[0.2em] text-xs uppercase">
                     Services
                   </span>
                 </div>
 
-                <h2 className="text-4xl lg:text-5xl font-display font-extrabold text-ink tracking-tighter leading-none">
+                <h2 className="text-4xl lg:text-5xl font-display font-black text-[#141414] tracking-tighter leading-none">
                   {category.title}
                 </h2>
 
-                <p className="text-ink/60 text-lg leading-relaxed max-w-xs font-sans">
+                <p className="text-[#141414]/60 text-lg leading-relaxed max-w-xs font-sans">
                   {category.fullDesc}
                 </p>
               </div>
@@ -148,15 +148,15 @@ const WhatWeDoSection = () => {
                 {category.services.map((service, idx) => (
                   <div
                     key={idx}
-                    className="group py-6 border-b border-ink/5 animate-in fade-in duration-1000 fill-mode-both"
+                    className="group py-6 border-b border-[#141414]/5 animate-in fade-in duration-1000 fill-mode-both"
                     style={{ animationDelay: `${idx * 100}ms` }}
                   >
                     {/* Service Header */}
                     <div className="flex items-center gap-4 mb-6">
-                      <div className="p-2 rounded-lg bg-primary/5 text-primary ring-1 ring-primary/20 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                      <div className="p-2 rounded-lg bg-[#0D9488]/5 text-[#0D9488] ring-1 ring-[#0D9488]/20 group-hover:bg-[#0D9488] group-hover:text-white transition-colors duration-300">
                         {service.icon}
                       </div>
-                      <h3 className="font-display text-xl font-bold text-ink group-hover:text-primary transition-colors duration-300">
+                      <h3 className="font-display text-xl font-bold text-[#141414] group-hover:text-[#0D9488] transition-colors duration-300">
                         {service.title}
                       </h3>
                     </div>
@@ -165,8 +165,8 @@ const WhatWeDoSection = () => {
                     <ul className="space-y-3 pl-2">
                       {service.items.map((item, i) => (
                         <li key={i} className="flex items-start gap-3 group/item">
-                          <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary/40 group-hover/item:bg-primary transition-colors duration-300 shrink-0" />
-                          <span className="text-sm text-ink/70 font-sans leading-relaxed group-hover/item:text-ink transition-colors duration-300">
+                          <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#0D9488]/40 group-hover/item:bg-[#0D9488] transition-colors duration-300 shrink-0" />
+                          <span className="text-sm text-[#141414]/70 font-sans leading-relaxed group-hover/item:text-[#141414] transition-colors duration-300">
                             {item}
                           </span>
                         </li>
