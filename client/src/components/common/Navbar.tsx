@@ -68,12 +68,12 @@ const Navbar: React.FC = () => {
                 staggerChildren: 0.1
             }
         }
-    };
+    } as const;
 
     const linkVariants = {
         closed: { opacity: 0, x: -30 },
         open: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 300, damping: 30 } }
-    };
+    } as const;
 
     return (
         <nav
