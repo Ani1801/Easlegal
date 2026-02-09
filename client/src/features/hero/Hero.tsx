@@ -13,7 +13,7 @@ interface HeroProps {
 
 export default function Hero({
   headline = "EasLegal Partners",
-  subheadline = "One of India’s most trusted legal and financial firms for founders and startups.",
+  subheadline = 'One of India’s most trusted legal and financial firms for founders and startups.',
   ctaText = "See Why Founders Trust Us",
   ctaHref,
   ctaOnClick,
