@@ -3,6 +3,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import SectionDivider from '@/components/common/SectionDivider';
 
 interface Resource {
   id: number;
@@ -58,7 +59,11 @@ const ResourcesSection = () => {
   const latestPosts = resources.slice(1, 4);
 
   return (
-    <section id="resources" className="bg-background py-20 px-6 border-b border-ink/5 flex flex-col justify-center overflow-hidden">
+    <section id="resources" className="relative bg-[#F0EEE9] py-24 px-6 border-b border-ink/5 flex flex-col justify-center overflow-hidden transition-colors duration-500">
+      {/* The Needle - Brass Vertical Line */}
+      {/* The Needle - Brass Vertical Line */}
+      <SectionDivider />
+
       <div className="max-w-7xl mx-auto w-full h-full flex flex-col justify-center">
 
         {/* Section Header */}
@@ -86,7 +91,7 @@ const ResourcesSection = () => {
 
             <div className="space-y-3 max-w-3xl shrink-0">
               <div className="flex items-center gap-3">
-                <span className="text-brass font-bold text-[10px] tracking-[0.2em] uppercase">
+                <span className="text-[#B59E7A] font-bold text-[10px] tracking-[0.2em] uppercase">
                   {featuredPost.category}
                 </span>
                 <span className="text-ink/40 text-[10px] font-sans tracking-widest">
@@ -94,7 +99,7 @@ const ResourcesSection = () => {
                 </span>
               </div>
 
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-ink leading-[1.1] tracking-tight group-hover:text-teal-600 transition-colors duration-300 line-clamp-2">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-ink leading-[1.1] tracking-tight group-hover:text-[#0D9488] transition-colors duration-300 line-clamp-2">
                 {featuredPost.title}
               </h3>
 
@@ -103,7 +108,7 @@ const ResourcesSection = () => {
               </p>
 
               <div className="pt-1">
-                <span className="group/link inline-flex items-center gap-2 text-teal-600 font-bold text-xs tracking-wide uppercase">
+                <span className="group/link inline-flex items-center gap-2 text-[#0D9488] font-bold text-xs tracking-wide uppercase">
                   Read Insight
                   <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/link:translate-x-1" />
                 </span>
@@ -114,8 +119,8 @@ const ResourcesSection = () => {
           {/* Latest Intelligence (Cols 9-12) */}
           <div className="lg:col-span-4 flex flex-col justify-center h-full border-l border-ink/5 pl-8">
             <div className="mb-4 flex items-center gap-3 shrink-0">
-              <div className="h-[1px] w-6 bg-brass" />
-              <span className="text-brass font-bold text-[10px] tracking-[0.2em] uppercase">
+              <div className="h-[1px] w-6 bg-[#B59E7A]" />
+              <span className="text-[#B59E7A] font-bold text-[10px] tracking-[0.2em] uppercase">
                 Latest Intelligence
               </span>
             </div>
@@ -128,7 +133,7 @@ const ResourcesSection = () => {
                 >
                   <div className="space-y-1.5">
                     <div className="flex items-center justify-between">
-                      <span className="text-brass font-bold text-[9px] tracking-[0.15em] uppercase">
+                      <span className="text-[#B59E7A] font-bold text-[9px] tracking-[0.15em] uppercase">
                         {post.category}
                       </span>
                       <span className="text-ink/30 text-[9px]">
@@ -136,12 +141,12 @@ const ResourcesSection = () => {
                       </span>
                     </div>
 
-                    <h4 className="text-base font-display font-bold text-ink leading-snug group-hover:text-teal-600 transition-colors duration-300 line-clamp-2">
+                    <h4 className="text-base font-display font-bold text-ink leading-snug group-hover:text-[#0D9488] transition-colors duration-300 line-clamp-2">
                       {post.title}
                     </h4>
                     <p className="text-xs text-ink/50 line-clamp-1">{post.excerpt}</p>
 
-                    <span className="group/link inline-flex items-center gap-1 text-teal-600/80 font-bold text-[10px] tracking-wide uppercase opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0 pt-1">
+                    <span className="group/link inline-flex items-center gap-1 text-[#0D9488]/80 font-bold text-[10px] tracking-wide uppercase opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0 pt-1">
                       Read
                       <ArrowRight className="w-2.5 h-2.5" />
                     </span>
@@ -152,13 +157,12 @@ const ResourcesSection = () => {
 
             {/* View All Link */}
             <div className="mt-4 pt-4 border-t border-ink/10 shrink-0">
-              <a href="#" className="text-ink font-bold text-xs tracking-wide hover:text-teal-600 transition-colors flex items-center gap-2">
+              <a href="#" className="text-ink font-bold text-xs tracking-wide hover:text-[#0D9488] transition-colors flex items-center gap-2">
                 View All Articles
                 <ArrowRight size={12} />
               </a>
             </div>
           </div>
-
         </div>
       </div>
     </section>

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Star } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const CollaborationSection = () => {
   // Repeating logos to ensure smooth infinite loop
@@ -24,64 +25,68 @@ const CollaborationSection = () => {
   ];
 
   return (
-    <section className="bg-white/50 py-20 overflow-hidden border-b border-ink/5 relative">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full">
-
-        {/* Header Row */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
-          <h2 className="text-5xl md:text-6xl font-display font-bold text-ink leading-tight tracking-tight text-center md:text-left">
-            Collaborating with Industry Leaders
-          </h2>
-
-          {/* Google Trust Badge (Right Aligned) */}
-          <div className="flex items-center gap-3 bg-white/60 px-5 py-2.5 rounded-full border border-ink/5 shadow-sm">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
-              alt="Google"
-              className="w-5 h-5 opacity-80"
-            />
-            <div className="h-4 w-[1px] bg-ink/10" />
-            <div className="flex items-center gap-2 text-[#C9A46B]">
-              <span className="font-display font-bold text-sm text-ink">4.9</span>
-              <div className="flex gap-0.5">
-                <Star size={12} className="fill-[#C9A46B] text-[#C9A46B]" />
-                <Star size={12} className="fill-[#C9A46B] text-[#C9A46B]" />
-                <Star size={12} className="fill-[#C9A46B] text-[#C9A46B]" />
-                <Star size={12} className="fill-[#C9A46B] text-[#C9A46B]" />
-                <Star size={12} className="fill-[#C9A46B] text-[#C9A46B]" />
-              </div>
+    <section className="bg-[#F8F9FA] py-20 px-6 lg:px-12 border-b border-[#1F1F1F]/5 overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        {/* Header Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16"
+        >
+          <div className="flex-1">
+            {/* Eyebrow */}
+            <div className="flex items-center gap-3 mb-4">
+              <div className="h-px w-8 bg-[#0F8F7A]" />
+              <span className="text-[10px] font-sans font-bold text-[#0F8F7A] uppercase tracking-[0.2em]">
+                Trusted Partners
+              </span>
             </div>
+            {/* Headline */}
+            <h2 className="text-4xl md:text-5xl font-sans font-bold text-[#1F1F1F] leading-tight">
+              Collaborating with Industry Leaders
+            </h2>
           </div>
-        </div>
 
-        {/* The "Vibrant Pop" Marquee Shelf */}
-        <div className="relative w-full bg-white/40 backdrop-blur-md rounded-2xl border border-ink/5 overflow-hidden">
+        </motion.div>
 
-          {/* Inner Divider */}
-          <div className="absolute top-0 left-6 right-6 h-[1px] bg-ink/5 z-10" />
+        {/* Logo Marquee */}
+        <div className="relative w-full overflow-hidden group">
+          <style>{`
+            @keyframes marquee-scroll {
+              from { transform: translateX(0); }
+              to { transform: translateX(-50%); }
+            }
+            .animate-scroll {
+              animation: marquee-scroll 50s linear infinite;
+            }
+            .group:hover .animate-scroll {
+              animation-play-state: paused;
+            }
+          `}</style>
 
-          {/* Side Fades for Depth */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white/40 to-transparent z-20 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white/40 to-transparent z-20 pointer-events-none" />
+          {/* Gradient Masks for smooth fade - updated to match light theme */}
+          <div className="absolute left-0 top-0 bottom-0 w-[15%] bg-gradient-to-r from-[#F8F9FA] to-transparent z-20 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-[15%] bg-gradient-to-l from-[#F8F9FA] to-transparent z-20 pointer-events-none" />
 
           <div
-            className="flex animate-marquee min-w-full items-center py-12 px-6 hover:[animation-play-state:paused]"
-            style={{ animationDuration: '40s' }}
+            className="flex gap-16 items-center animate-scroll w-max"
           >
             {logos.map((logo, index) => (
-              <div key={index} className="flex-shrink-0 mx-10 group relative py-2">
+              <div
+                key={index}
+                className="flex-shrink-0 h-12 flex items-center justify-center hover:scale-110 transition-transform duration-300"
+              >
                 <img
-                  src={logo.src}
+                  src={logo.src || "/placeholder.svg"}
                   alt={logo.name}
-                  className="h-9 md:h-11 w-auto object-contain transition-all duration-300 ease-out
-                                               opacity-70 grayscale-0
-                                               group-hover:opacity-100 group-hover:scale-125 group-hover:z-50 group-hover:drop-shadow-[0_15px_30px_rgba(13,148,136,0.15)]"
+                  className="h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-all duration-300"
                 />
               </div>
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );

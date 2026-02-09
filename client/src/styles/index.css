@@ -5,68 +5,72 @@
 
 :root {
   /* Cloud Dancer (#F0EEE9) -> Foundation (60%) */
-  --background: oklch(0.95 0.01 70);
-  --foreground: oklch(0.14 0 0);
-  /* Ink (#141414) */
+  --background: #F0EEE9;
+  --foreground: #141414;
+  /* Ink */
 
-  --card: oklch(0.97 0.01 70);
-  /* Slightly lighter than background */
-  --card-foreground: oklch(0.14 0 0);
+  --card: #F0EEE9;
+  --card-foreground: #141414;
 
-  --popover: oklch(0.95 0.01 70);
-  --popover-foreground: oklch(0.14 0 0);
+  --popover: #F0EEE9;
+  --popover-foreground: #141414;
 
   /* Transformative Teal (#0D9488) -> Accent (10%) */
-  --primary: oklch(0.58 0.14 175);
-  --primary-foreground: oklch(0.98 0 0);
+  /* Action Colors, Active Text, Partners */
+  --primary: #0D9488;
+  --primary-foreground: #FFFFFF;
 
-  /* Brass / Gold (#C9A46B) -> The Warmth */
-  --secondary: oklch(0.72 0.11 75);
-  --secondary-foreground: oklch(0.14 0 0);
+  /* Champagne Brass (#B59E7A) -> Details/Secondary */
+  --secondary: #B59E7A;
+  --secondary-foreground: #141414;
 
-  --muted: oklch(0.92 0.01 70);
-  --muted-foreground: oklch(0.45 0 0);
+  --muted: #E6E4DF;
+  /* Slightly darker than background for subtle distinction if needed */
+  --muted-foreground: #141414;
+  /* Ink at 70% opacity usually handled by opacity utilities, but base color is Ink */
 
-  /* We'll use Teal for Accents too */
-  --accent: oklch(0.58 0.14 175);
-  --accent-foreground: oklch(0.98 0 0);
+  --accent: #0D9488;
+  --accent-foreground: #FFFFFF;
 
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
 
-  --border: oklch(0.88 0.02 70);
-  --input: oklch(0.88 0.02 70);
-  --ring: oklch(0.58 0.14 175);
+  --border: rgba(20, 20, 20, 0.1);
+  /* Ink with low opacity */
+  --input: rgba(20, 20, 20, 0.1);
+  --ring: #0D9488;
 
   --radius: 0.5rem;
 }
 
-/* For Dark Mode, we flip the values to keep it "Warm" but deep */
+/* For Dark Mode, currently adhering strictly to the requested palette which seems light-themed. 
+   Will keep dark mode variable structure but force the requested colors for now unless specific dark mode requested.
+   The user explicitly asked for backgrounds to be #F0EEE9. */
 .dark {
-  --background: oklch(0.20 0.01 70);
-  /* Deep warm charcoal */
-  --foreground: oklch(0.95 0.01 70);
-  /* Cloud Dancer text */
+  --background: #141414;
+  --foreground: #F0EEE9;
 
-  --card: oklch(0.22 0.01 70);
-  --card-foreground: oklch(0.95 0.01 70);
+  --card: #1c1c1c;
+  --card-foreground: #F0EEE9;
 
-  --primary: oklch(0.65 0.16 175);
-  /* Brighter Teal for dark mode visibility */
-  --primary-foreground: oklch(0.14 0 0);
+  --primary: #0D9488;
+  --primary-foreground: #FFFFFF;
 
-  --secondary: oklch(0.75 0.12 75);
-  /* Brass */
-  --secondary-foreground: oklch(0.14 0 0);
+  --secondary: #B59E7A;
+  --secondary-foreground: #141414;
 
-  --border: oklch(0.30 0.02 70);
-  --input: oklch(0.30 0.02 70);
+  --border: rgba(240, 238, 233, 0.1);
+  --input: rgba(240, 238, 233, 0.1);
 }
 
 @theme inline {
-  /* Applying your Plus Jakarta and Inter strategy */
-  --font-sans: 'Inter', 'ui-sans-serif', 'system-ui';
-  --font-display: 'Plus Jakarta Sans', 'Inter', 'sans-serif';
+  /* Rule 2: Typographic Duo */
+  /* Geometric Precision: UI text (Nav, Buttons, Labels, Body) -> Plus Jakarta Sans */
+  --font-sans: 'Plus Jakarta Sans', 'ui-sans-serif', 'system-ui', 'sans-serif';
+
+  /* Authoritative Accents: Titles, "Partners", "Legacy" -> High-Contrast Serif */
+  --font-display: 'Playfair Display', 'Georgia', 'serif';
+  --font-serif: 'Playfair Display', 'Georgia', 'serif';
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -89,7 +93,7 @@
   h4,
   h5,
   h6 {
-    @apply font-display font-extrabold tracking-tight;
+    @apply font-display font-bold tracking-tight;
   }
 
   body {

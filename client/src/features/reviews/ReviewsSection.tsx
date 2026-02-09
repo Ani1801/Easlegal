@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { Play, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import SectionDivider from '@/components/common/SectionDivider';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface FounderStory {
   id: number;
@@ -11,7 +13,7 @@ interface FounderStory {
   company: string;
   quote: string;
   videoThumbnail: string;
-  videoUrl: string; // Embed URL or video file path
+  videoUrl: string;
 }
 
 const ReviewsSection = () => {
@@ -44,7 +46,7 @@ const ReviewsSection = () => {
       quote: '"The most founder-friendly legal team I\'ve worked with. They understand tech, equity, and the speed at which we need to move."',
       videoThumbnail: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1200',
       videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1',
-    }
+    },
   ];
 
   const [activeStory, setActiveStory] = useState<FounderStory>(stories[0]);
@@ -53,102 +55,126 @@ const ReviewsSection = () => {
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <section id="reviews" className="relative bg-white/50 py-20 overflow-hidden border-y border-ink/5">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full relative z-10 h-full flex flex-col justify-center">
+    <section id="reviews" className="relative bg-[#F0EEE9] py-24 overflow-hidden border-y border-[#1F1F1F]/5">
+      <SectionDivider />
+
+      {/* Decorative Background */}
+      <div className="absolute inset-0 bg-[#0D9488]/[0.02] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full relative z-10">
 
         {/* Section Heading - Compact */}
-        <div className="mb-6 shrink-0">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-black tracking-tighter text-ink leading-[1.0]">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-12 shrink-0"
+        >
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-black tracking-tight text-[#1F1F1F] leading-[1.0]">
             The Founders <br />
-            <span className="italic text-foreground/70 font-serif">Behind the Success.</span>
+            <span className="italic text-[#1F1F1F]/70 font-serif">Behind the Success.</span>
           </h2>
-        </div>
+        </motion.div>
 
-        {/* Cinematic Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center flex-1 min-h-0">
+        {/* 2-Column Layout: Video Gallery */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-12 lg:gap-16 items-start">
 
-          {/* Left: The Cinematic Video Thumbnail (Cols 1-7) */}
-          <div className="lg:col-span-7 relative group cursor-pointer h-full flex items-center justify-center p-2" onClick={openModal}>
-            <div className="relative overflow-hidden rounded-[1.5rem] shadow-2xl shadow-ink/10 w-full aspect-video lg:h-auto lg:max-h-[55vh] transition-transform duration-700 hover:scale-[1.01]">
-              <img
-                src={activeStory.videoThumbnail}
-                alt={activeStory.founderName}
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-              />
-              {/* Soft Gradient Overlay */}
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
+          {/* Col 1-7: The Hero Video Container */}
+          <div className="lg:col-span-7">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeStory.id}
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.4 }}
+                className="relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl shadow-[#1F1F1F]/10 group cursor-pointer"
+                onClick={openModal}
+              >
+                <img
+                  src={activeStory.videoThumbnail}
+                  alt={activeStory.founderName}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-500" />
 
-              {/* Center Play Button */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-[#0D9488] rounded-full flex items-center justify-center shadow-2xl transition-all duration-500 group-hover:scale-110 group-hover:shadow-[0_0_40px_rgba(13,148,136,0.5)]">
-                  <Play className="w-6 h-6 md:w-8 md:h-8 text-white fill-white ml-1" />
+                {/* Play Button */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 shadow-2xl transition-all duration-300 group-hover:scale-110 group-hover:bg-[#0D9488] group-hover:border-transparent">
+                    <Play className="w-8 h-8 text-white fill-white ml-1" />
+                  </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
 
-          {/* Right: The Editorial Story (Cols 8-12) */}
-          <div className="lg:col-span-5 flex flex-col justify-center h-full py-2">
+          {/* Col 8-12: The Narrative */}
+          <div className="lg:col-span-5 flex flex-col justify-center h-full">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeStory.id}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.4 }}
+                className="space-y-8"
+              >
+                {/* Quote */}
+                <blockquote className="text-2xl lg:text-3xl font-serif italic leading-relaxed text-[#1F1F1F]">
+                  {activeStory.quote}
+                </blockquote>
 
-            <div className="space-y-6">
-              {/* The Pull Quote */}
-              <blockquote className="text-2xl lg:text-3xl font-display italic leading-tight text-ink line-clamp-5">
-                {activeStory.quote}
-              </blockquote>
+                {/* Founder Credentials */}
+                <div className="border-l-2 border-[#0D9488] pl-6 py-1">
+                  <h4 className="text-xl font-bold text-[#1F1F1F] font-sans">
+                    {activeStory.founderName}
+                  </h4>
+                  <p className="text-sm font-bold text-[#0D9488] uppercase tracking-wider font-sans mt-1">
+                    {activeStory.role}, {activeStory.company}
+                  </p>
+                </div>
+              </motion.div>
+            </AnimatePresence>
 
-              {/* Founder Details */}
-              <div className="space-y-1 border-l-2 border-[#C9A46B] pl-4 py-1">
-                <h4 className="text-lg font-bold text-ink tracking-tight">
-                  {activeStory.founderName}
-                </h4>
-                <p className="text-base text-[#C9A46B] font-medium font-sans">
-                  {activeStory.role}, {activeStory.company}
-                </p>
-              </div>
-            </div>
-
-            {/* Story Switcher List */}
-            <div className="mt-8 pt-6 border-t border-ink/5">
-              <p className="text-xs font-bold text-ink/40 tracking-widest uppercase mb-4">More Stories</p>
-              <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+            {/* Interactive Thumbnails */}
+            <div className="mt-12">
+              <p className="text-xs font-bold text-[#1F1F1F]/40 tracking-widest uppercase mb-4 font-sans">More Stories</p>
+              <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
                 {stories.map((story) => (
-                  <div
+                  <button
                     key={story.id}
                     onClick={() => setActiveStory(story)}
                     className={cn(
-                      "relative w-24 h-16 rounded-lg overflow-hidden cursor-pointer transition-all duration-300 shrink-0",
+                      "relative w-32 aspect-video rounded-lg overflow-hidden transition-all duration-300 shrink-0",
                       activeStory.id === story.id
                         ? "ring-2 ring-[#0D9488] ring-offset-2 ring-offset-[#F0EEE9] opacity-100"
-                        : "opacity-50 hover:opacity-80 grayscale"
+                        : "opacity-60 hover:opacity-100 grayscale hover:grayscale-0"
                     )}
                   >
                     <img src={story.videoThumbnail} alt={story.founderName} className="w-full h-full object-cover" />
-                    {/* Small Play Overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-                      <div className="p-1 rounded-full bg-white/20 backdrop-blur-[1px]">
-                        <Play size={12} className="text-white fill-white ml-0.5" />
+                    {/* Small Play Indicator */}
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/10">
+                      <div className="p-1.5 rounded-full bg-white/20 backdrop-blur-sm">
+                        <Play size={10} className="text-white fill-white ml-0.5" />
                       </div>
                     </div>
-                  </div>
+                  </button>
                 ))}
               </div>
             </div>
           </div>
 
         </div>
-
       </div>
 
       {/* Video Modal Overlay */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center px-4 animate-in fade-in duration-300">
-          {/* Backdrop Blur */}
           <div
-            className="absolute inset-0 bg-black/60 backdrop-blur-md"
+            className="absolute inset-0 bg-black/80 backdrop-blur-md"
             onClick={closeModal}
           />
-
-          {/* Modal Content */}
           <div className="relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl animate-in zoom-in-95 duration-500">
             <button
               onClick={closeModal}
@@ -168,6 +194,7 @@ const ReviewsSection = () => {
           </div>
         </div>
       )}
+
     </section>
   );
 };
