@@ -25,7 +25,7 @@ const TeamSection = () => {
       bio: 'With 20+ years of experience in corporate law and business advisory, Rajesh founded EasLegal Partners to democratize legal expertise. His vision is to make professional guidance accessible to every startup.',
       expertise: [
         'Corporate Law',
-        'M&A & Fundraising',
+        'M&A Strategy',
         'Regulatory Compliance',
         'Business Strategy',
         'Founder Advisory',
@@ -75,116 +75,80 @@ const TeamSection = () => {
   ];
 
   return (
-    <section className="bg-white py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        {/* Section Header */}
-        <div className="mb-10">
-          <h2 className="text-3xl font-bold text-blue-900 mb-2 text-balance">
-            Meet Our Founding Team
-          </h2>
-          <p className="text-gray-600">
-            Experienced professionals dedicated to your success
-          </p>
-        </div>
-
-        {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {teamMembers.map((member) => (
-            <div
-              key={member.id}
-              className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 border border-gray-200 hover:border-amber-400 flex flex-col"
-            >
-              {/* Image Container */}
-              <div className="relative h-56 overflow-hidden bg-gradient-to-br from-gray-200 to-gray-300">
-                <img
-                  src={member.image || "/placeholder.svg"}
-                  alt={member.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-
-              {/* Content */}
-              <div className="flex-1 p-5 space-y-3">
-                {/* Name & Title */}
-                <div>
-                  <h3 className="text-lg font-bold text-blue-900">
-                    {member.name}
-                  </h3>
-                  <p className="text-amber-400 font-semibold text-xs mt-0.5">
-                    {member.title}
-                  </p>
-                </div>
-
-                {/* Short Bio */}
-                <p className="text-gray-600 text-xs leading-relaxed line-clamp-2">
-                  {member.bio.substring(0, 80)}...
-                </p>
-
-                {/* Top 3 Expertise Tags */}
-                <div className="flex flex-wrap gap-1">
-                  {member.expertise.slice(0, 3).map((skill, idx) => (
-                    <span
-                      key={idx}
-                      className="text-xs bg-blue-100 text-blue-900 px-2 py-1 rounded-full font-medium border border-blue-200"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Divider */}
-                <div className="h-px bg-gray-200" />
-
-                {/* Contact Links */}
-                <div className="space-y-2">
-                  <div className="flex gap-2">
-                    <a
-                      href={`mailto:${member.email}`}
-                      className="flex-1 flex items-center justify-center gap-1 bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-900 py-2 rounded-lg transition-colors duration-300 group/link"
-                      title={member.email}
-                    >
-                      <Mail size={14} />
-                      <span className="hidden sm:inline text-xs font-medium">Email</span>
-                    </a>
-                    <a
-                      href={`tel:${member.phone}`}
-                      className="flex-1 flex items-center justify-center gap-1 bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-900 py-2 rounded-lg transition-colors duration-300 group/link"
-                      title={member.phone}
-                    >
-                      <Phone size={14} />
-                      <span className="hidden sm:inline text-xs font-medium">Call</span>
-                    </a>
-                  </div>
-
-                  {/* Social Links */}
-                  <div className="flex gap-2">
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-1 bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-900 py-2 rounded-lg transition-colors duration-300 text-xs font-medium"
-                      title="LinkedIn"
-                    >
-                      <Linkedin size={13} />
-                      <span className="hidden sm:inline">LinkedIn</span>
-                    </a>
-                    <a
-                      href={member.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-1 bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-900 py-2 rounded-lg transition-colors duration-300 text-xs font-medium"
-                      title="Instagram"
-                    >
-                      <Instagram size={13} />
-                      <span className="hidden sm:inline">Instagram</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
+    <section className="bg-white">
+      {teamMembers.map((member, index) => (
+        <div
+          key={member.id}
+          className={`flex flex-col lg:flex-row min-h-[85vh] ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
+        >
+          {/* Left Column (Image) - 40% */}
+          <div className="w-full lg:w-[40%] text-center lg:text-left p-8 lg:p-12">
+            <div className="relative h-[50vh] lg:h-[600px] overflow-hidden rounded-3xl shadow-xl">
+              <div className="absolute inset-0 bg-gray-200" /> {/* Placeholder while loading */}
+              <img
+                src={member.image}
+                alt={member.name}
+                className="w-full h-full object-cover object-top"
+              />
             </div>
-          ))}
+          </div>
+
+          {/* Right Column (Content) - 60% */}
+          <div className="w-full lg:w-[60%] bg-white flex flex-col justify-center px-8 sm:px-16 py-20 lg:py-0 border-b border-gray-100 lg:border-b-0">
+            <div className="max-w-md mx-auto lg:mx-0">
+
+              {/* Role */}
+              <span className="block text-[#0D9488] uppercase tracking-[0.2em] text-xs font-bold mb-4">
+                {member.title}
+              </span>
+
+              {/* Name */}
+              <h2 className="text-4xl sm:text-5xl font-playfair text-[#1F1F1F] mb-8 leading-tight">
+                {member.name}
+              </h2>
+
+              {/* Skill Cloud */}
+              <div className="flex flex-wrap gap-2 mb-8">
+                {member.expertise.map((skill, idx) => (
+                  <span
+                    key={idx}
+                    className="px-4 py-1.5 border border-gray-200 rounded-full text-xs text-gray-600 bg-white hover:border-[#0D9488] hover:text-[#0D9488] transition-colors duration-300 cursor-default"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+
+              {/* Bio */}
+              <p className="text-gray-600 leading-relaxed font-light text-lg mb-12">
+                {member.bio}
+              </p>
+
+              {/* Classy Contact Bar */}
+              <div className="flex items-center gap-4">
+                {[
+                  { Icon: Phone, href: `tel:${member.phone}`, label: 'Call' },
+                  { Icon: Mail, href: `mailto:${member.email}`, label: 'Email' },
+                  { Icon: Linkedin, href: member.linkedin, label: 'LinkedIn' },
+                  { Icon: Instagram, href: member.instagram, label: 'Instagram' },
+                ].map(({ Icon, href, label }, idx) => (
+                  <a
+                    key={idx}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full border border-[#0D9488] flex items-center justify-center text-[#0D9488] hover:bg-[#0D9488] hover:text-white transition-all duration-300 group"
+                    aria-label={label}
+                  >
+                    <Icon size={18} strokeWidth={1.5} />
+                  </a>
+                ))}
+              </div>
+
+            </div>
+          </div>
         </div>
-      </div>
+      ))}
     </section>
   );
 };

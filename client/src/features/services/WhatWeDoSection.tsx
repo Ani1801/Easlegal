@@ -168,10 +168,10 @@ const WhatWeDoSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: idx * 0.05 }}
-                    className="group h-full bg-white border border-black/5 rounded-lg p-6 hover:shadow-lg hover:border-[#0F8F7A]/20 transition-all duration-300 hover:-translate-y-1 flex flex-col"
+                    className="group h-full bg-white border border-black/5 rounded-lg p-6 hover:shadow-xl hover:shadow-[#0F8F7A]/5 hover:border-[#0F8F7A]/30 transition-all duration-500 ease-out hover:-translate-y-2 flex flex-col"
                   >
                     {/* Icon */}
-                    <div className="mb-4 p-3 w-fit rounded-md bg-[#0F8F7A]/10 text-[#0F8F7A] group-hover:bg-[#0F8F7A] group-hover:text-white transition-all duration-300">
+                    <div className="mb-4 p-3 w-fit rounded-md bg-[#0F8F7A]/10 text-[#0F8F7A] group-hover:bg-[#0F8F7A] group-hover:text-white group-hover:scale-110 transition-all duration-500 ease-out">
                       {service.icon}
                     </div>
 

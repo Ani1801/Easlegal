@@ -27,7 +27,7 @@ const ReviewsSection = () => {
       company: 'DIGGS',
       quote: '"EasLegal didn’t just handle our compliance; they became the strategic backbone that allowed us to scale from Seed to Series A without a single regulatory hiccup."',
       videoThumbnail: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1200',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1',
+      videoUrl: '',
     },
     {
       id: 2,
@@ -36,7 +36,7 @@ const ReviewsSection = () => {
       company: 'FINASTRA',
       quote: '"It\'s a two-code platform that helps us automate processes. We reduced our legal turnaround time by 60% within the first month."',
       videoThumbnail: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=1200',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1',
+      videoUrl: '',
     },
     {
       id: 3,
@@ -45,7 +45,7 @@ const ReviewsSection = () => {
       company: 'TechVenture',
       quote: '"The most founder-friendly legal team I\'ve worked with. They understand tech, equity, and the speed at which we need to move."',
       videoThumbnail: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1200',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1',
+      videoUrl: '',
     },
   ];
 

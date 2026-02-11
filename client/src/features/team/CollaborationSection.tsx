@@ -44,9 +44,12 @@ const CollaborationSection = () => {
               </span>
             </div>
             {/* Headline */}
-            <h2 className="text-4xl md:text-5xl font-sans font-bold text-[#1F1F1F] leading-tight">
+            <h2 className="text-4xl md:text-5xl font-sans font-bold text-[#1F1F1F] leading-tight mb-4">
               Collaborating with Industry Leaders
             </h2>
+            <p className="text-lg text-[#4B4B4B] max-w-2xl leading-relaxed">
+              Trusted by teams and founders associated with global leaders
+            </p>
           </div>
 
         </motion.div>

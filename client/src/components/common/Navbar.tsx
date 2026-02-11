@@ -24,7 +24,14 @@ const Navbar: React.FC = () => {
 
     const navLinks: NavLink[] = [
         { label: 'Services', href: '/#services' },
-        { label: 'About', href: '/about' },
+        {
+            label: 'About',
+            href: '#',
+            children: [
+                { label: 'Our Firm', href: '/our-firm' },
+                { label: 'Our Team', href: '/our-team' }
+            ]
+        },
         {
             label: 'Resources',
             href: '#',
@@ -78,7 +85,7 @@ const Navbar: React.FC = () => {
     return (
         <nav
             className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-ink/5 bg-[#F0EEE9]/90 backdrop-blur-md",
+                "fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-ink/5 bg-[#F0EEE9]",
                 scrolled ? "py-4 shadow-sm" : "py-6"
             )}
         >
@@ -156,84 +163,102 @@ const Navbar: React.FC = () => {
             {/* Mobile Navigation - Miragix Overlay (z-100, Solid, Fullscreen) */}
             <AnimatePresence>
                 {mobileMenuOpen && (
-                    <div className="fixed inset-0 z-[100] bg-[#F0EEE9]/90 backdrop-blur-md lg:hidden flex flex-col">
-                        {/* Close Button Area - Matches Navbar Layout */}
-                        <div className="flex items-center justify-between px-6 py-6 md:py-6 border-b border-ink/5">
-                            <div className="font-display font-extrabold text-xl md:text-2xl text-ink tracking-tighter">
-                                EasLegal<span className="text-[#0D9488]">.</span>
+                    <>
+                        {/* Backdrop */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="fixed inset-0 z-[99] bg-black/20 backdrop-blur-sm lg:hidden"
+                            onClick={() => setMobileMenuOpen(false)}
+                        />
+
+                        {/* Drawer - Right Side */}
+                        <motion.div
+                            initial={{ x: "100%" }}
+                            animate={{ x: 0 }}
+                            exit={{ x: "100%" }}
+                            transition={{ type: "tween", duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                            className="fixed top-0 right-0 bottom-0 z-[100] w-[85%] md:w-[60%] bg-[#F0EEE9] shadow-2xl lg:hidden flex flex-col border-l border-ink/5"
+                        >
+                            {/* Close Button Area */}
+                            <div className="flex items-center justify-between px-6 py-6 border-b border-ink/5">
+                                <span className="font-bold uppercase tracking-[0.15em] text-sm text-ink/80">
+                                    Menu
+                                </span>
+                                <button
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="text-ink p-1 flex items-center justify-center w-8 h-8 group hover:bg-ink/5 rounded-full transition-colors"
+                                    aria-label="Close menu"
+                                >
+                                    <X size={24} strokeWidth={1.5} className="text-ink transition-transform duration-300 group-hover:rotate-90" />
+                                </button>
                             </div>
 
-                            <button
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="text-ink p-1 flex items-center justify-center w-8 h-8 group"
-                                aria-label="Close menu"
+                            {/* Content Container */}
+                            <motion.div
+                                initial="closed"
+                                animate="open"
+                                exit="closed"
+                                variants={menuVariants}
+                                className="flex flex-col flex-grow px-8 py-8 gap-y-8 overflow-y-auto"
                             >
-                                <X size={36} strokeWidth={1.5} className="text-ink transition-transform duration-300 group-hover:rotate-90" />
-                            </button>
-                        </div>
-
-                        {/* Content Container - Vertically Centered, Left Aligned */}
-                        <motion.div
-                            initial="closed"
-                            animate="open"
-                            exit="closed"
-                            variants={menuVariants}
-                            className="flex flex-col flex-grow justify-center px-10 gap-y-8"
-                        >
-                            <nav className="flex flex-col items-start gap-6">
-                                {navLinks.map((link) => (
-                                    <motion.div key={link.label} variants={linkVariants} className="w-full">
-                                        {link.children ? (
-                                            <div className="flex flex-col items-start">
-                                                <button
-                                                    onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
-                                                    className="flex items-center justify-between w-full font-sans font-bold text-4xl text-ink hover:text-[#0D9488] transition-colors tracking-tighter leading-tight"
+                                <nav className="flex flex-col items-start gap-6">
+                                    {navLinks.map((link) => (
+                                        <motion.div key={link.label} variants={linkVariants} className="w-full">
+                                            {link.children ? (
+                                                <div className="flex flex-col items-start w-full">
+                                                    <button
+                                                        onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
+                                                        className="flex items-center justify-between w-full font-bold uppercase tracking-[0.15em] text-lg text-ink hover:text-[#0D9488] transition-colors leading-tight group"
+                                                    >
+                                                        {link.label}
+                                                        <ChevronRight className={cn("w-5 h-5 ml-2 transition-transform duration-300 group-hover:text-[#0D9488]", mobileResourcesOpen && "rotate-90")} />
+                                                    </button>
+                                                    <AnimatePresence>
+                                                        {mobileResourcesOpen && (
+                                                            <motion.div
+                                                                initial={{ height: 0, opacity: 0 }}
+                                                                animate={{ height: "auto", opacity: 1 }}
+                                                                exit={{ height: 0, opacity: 0 }}
+                                                                className="overflow-hidden pl-4 flex flex-col gap-3 mt-4 w-full border-l border-ink/10 ml-1"
+                                                            >
+                                                                {link.children.map(child => (
+                                                                    <Link
+                                                                        key={child.label}
+                                                                        to={child.href}
+                                                                        className="font-bold uppercase tracking-[0.1em] text-sm text-ink/70 hover:text-[#0D9488] transition-colors block py-2"
+                                                                        onClick={() => setMobileMenuOpen(false)}
+                                                                    >
+                                                                        {child.label}
+                                                                    </Link>
+                                                                ))}
+                                                            </motion.div>
+                                                        )}
+                                                    </AnimatePresence>
+                                                </div>
+                                            ) : (
+                                                <Link
+                                                    to={link.href}
+                                                    className="font-bold uppercase tracking-[0.15em] text-lg text-ink hover:text-[#0D9488] transition-colors leading-tight block w-full"
+                                                    onClick={() => setMobileMenuOpen(false)}
                                                 >
                                                     {link.label}
-                                                    <ChevronRight className={cn("w-6 h-6 ml-2 transition-transform duration-300", mobileResourcesOpen && "rotate-90")} />
-                                                </button>
-                                                <AnimatePresence>
-                                                    {mobileResourcesOpen && (
-                                                        <motion.div
-                                                            initial={{ height: 0, opacity: 0 }}
-                                                            animate={{ height: "auto", opacity: 1 }}
-                                                            exit={{ height: 0, opacity: 0 }}
-                                                            className="overflow-hidden pl-4 flex flex-col gap-4 mt-4"
-                                                        >
-                                                            {link.children.map(child => (
-                                                                <Link
-                                                                    key={child.label}
-                                                                    to={child.href}
-                                                                    className="font-sans font-bold text-2xl text-ink/70 hover:text-[#0D9488] transition-colors tracking-tight"
-                                                                    onClick={() => setMobileMenuOpen(false)}
-                                                                >
-                                                                    {child.label}
-                                                                </Link>
-                                                            ))}
-                                                        </motion.div>
-                                                    )}
-                                                </AnimatePresence>
-                                            </div>
-                                        ) : (
-                                            <Link
-                                                to={link.href}
-                                                className="font-sans font-bold text-4xl text-ink hover:text-[#0D9488] transition-colors tracking-tighter leading-tight"
-                                                onClick={() => setMobileMenuOpen(false)}
-                                            >
-                                                {link.label}
-                                            </Link>
-                                        )}
-                                    </motion.div>
-                                ))}
-                            </nav>
+                                                </Link>
+                                            )}
+                                        </motion.div>
+                                    ))}
+                                </nav>
 
-                            <motion.div variants={linkVariants} className="w-full max-w-sm mt-4">
-                                <Button className="w-full bg-[#0D9488] text-white rounded-full h-14 text-lg font-bold tracking-wide hover:bg-[#0D9488]/90">
-                                    Get in Touch
-                                </Button>
+                                <motion.div variants={linkVariants} className="w-full mt-auto pt-8">
+                                    <Button className="w-full bg-[#0D9488] text-white rounded-full h-12 text-sm font-bold uppercase tracking-widest hover:bg-[#0D9488]/90 shadow-lg transition-all duration-300">
+                                        Book Consultation
+                                    </Button>
+                                </motion.div>
                             </motion.div>
                         </motion.div>
-                    </div>
+                    </>
                 )}
             </AnimatePresence>
         </nav>
