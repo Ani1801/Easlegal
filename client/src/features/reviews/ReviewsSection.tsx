@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Play, X } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Play, X, Pause, Volume2, VolumeX } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import SectionDivider from '@/components/common/SectionDivider';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -13,11 +13,12 @@ interface FounderStory {
   company: string;
   quote: string;
   videoThumbnail: string;
-  videoUrl: string;
+  videoUrl: string; // Now expecting a direct MP4 link
 }
 
 const ReviewsSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const stories: FounderStory[] = [
     {
@@ -27,7 +28,8 @@ const ReviewsSection = () => {
       company: 'DIGGS',
       quote: '"EasLegal didn’t just handle our compliance; they became the strategic backbone that allowed us to scale from Seed to Series A without a single regulatory hiccup."',
       videoThumbnail: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1200',
-      videoUrl: '',
+      // Valid MP4 placeholder
+      videoUrl: 'https://cdn.coverr.co/videos/coverr-people-working-in-office-4623/1080p.mp4',
     },
     {
       id: 2,
@@ -36,7 +38,7 @@ const ReviewsSection = () => {
       company: 'FINASTRA',
       quote: '"It\'s a two-code platform that helps us automate processes. We reduced our legal turnaround time by 60% within the first month."',
       videoThumbnail: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=1200',
-      videoUrl: '',
+      videoUrl: 'https://cdn.coverr.co/videos/coverr-business-meeting-presentation-4567/1080p.mp4',
     },
     {
       id: 3,
@@ -45,14 +47,20 @@ const ReviewsSection = () => {
       company: 'TechVenture',
       quote: '"The most founder-friendly legal team I\'ve worked with. They understand tech, equity, and the speed at which we need to move."',
       videoThumbnail: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1200',
-      videoUrl: '',
+      videoUrl: 'https://cdn.coverr.co/videos/coverr-woman-working-on-laptop-at-home-4752/1080p.mp4',
     },
   ];
 
   const [activeStory, setActiveStory] = useState<FounderStory>(stories[0]);
 
   const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const closeModal = () => {
+    setIsModalOpen(false);
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  };
 
   return (
     <section id="reviews" className="relative bg-[#F0EEE9] py-24 overflow-hidden border-y border-[#1F1F1F]/5">
@@ -168,7 +176,7 @@ const ReviewsSection = () => {
         </div>
       </div>
 
-      {/* Video Modal Overlay */}
+      {/* Video Modal Overlay - Native MP4 */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center px-4 animate-in fade-in duration-300">
           <div
@@ -182,15 +190,16 @@ const ReviewsSection = () => {
             >
               <X size={24} />
             </button>
-            <iframe
-              width="100%"
-              height="100%"
+            <video
+              ref={videoRef}
               src={activeStory.videoUrl}
-              title="Founder Story"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+              className="w-full h-full object-contain"
+              controls
+              autoPlay
+              playsInline
+            >
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       )}
