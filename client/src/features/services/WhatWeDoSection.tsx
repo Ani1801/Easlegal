@@ -1,13 +1,19 @@
 'use client';
 
-
 import React from 'react';
 import { Rocket, TrendingUp, Globe, ArrowUpRight, CheckCircle2, Briefcase, Scale, FileText, Zap } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
+interface ServiceItem {
+  label: string;
+  id: string;
+}
 
 interface Service {
   title: string;
-  items: string[];
+  items: ServiceItem[];
   icon?: React.ReactNode;
 }
 
@@ -19,11 +25,6 @@ interface ServiceCategory {
   services: Service[];
 }
 
-import { motion } from 'framer-motion';
-import SectionDivider from '@/components/common/SectionDivider';
-
-// ... (interfaces remain same)
-
 const WhatWeDoSection = () => {
   const categories: ServiceCategory[] = [
     {
@@ -34,22 +35,42 @@ const WhatWeDoSection = () => {
       services: [
         {
           title: 'Virtual CFO',
-          items: ['Accounting & Tax Compliance', 'Payroll Management', 'MIS and Budgeting', 'Due Diligence Support', 'Financial Modeling'],
+          items: [
+            { label: 'Accounting & Tax Compliance', id: 'accounting-tax-compliance' },
+            { label: 'Payroll Management', id: 'payroll-management' },
+            { label: 'MIS and Budgeting', id: 'mis-and-budgeting' },
+            { label: 'Due Diligence Support', id: 'due-diligence-support' },
+            { label: 'Financial Modeling', id: 'financial-modeling' }
+          ],
           icon: <Zap className="w-5 h-5 text-[#0F8F7A]" strokeWidth={1.5} />
         },
         {
           title: 'Legal Support',
-          items: ['Fundraising and M&A', 'Legal Contracts', 'IPR Protection', 'POSH Compliance'],
+          items: [
+            { label: 'Fundraising and M&A', id: 'fundraising-and-mna' },
+            { label: 'Legal Contracts', id: 'legal-contracts' },
+            { label: 'IPR Protection', id: 'ipr-protection' },
+            { label: 'POSH Compliance', id: 'posh-compliance' }
+          ],
           icon: <Scale className="w-5 h-5 text-[#0F8F7A]" strokeWidth={1.5} />
         },
         {
           title: 'Secretarial Compliance',
-          items: ['Incorporation & Registration', 'Recurring Compliance', 'Event Based Compliances', 'FEMA Compliance'],
+          items: [
+            { label: 'Incorporation & Registration', id: 'incorporation-registration' },
+            { label: 'Recurring Compliance', id: 'recurring-compliance' },
+            { label: 'Event Based Compliances', id: 'event-based-compliances' },
+            { label: 'FEMA Compliance', id: 'fema-compliance' }
+          ],
           icon: <FileText className="w-5 h-5 text-[#0F8F7A]" strokeWidth={1.5} />
         },
         {
           title: 'Tax & Regulatory',
-          items: ['Tax Structuring', 'Regulatory Advisory', 'ESOP & Advisor Equity'],
+          items: [
+            { label: 'Tax Structuring', id: 'tax-structuring' },
+            { label: 'Regulatory Advisory', id: 'regulatory-advisory' },
+            { label: 'ESOP & Advisor Equity', id: 'esop-advisor-equity' }
+          ],
           icon: <CheckCircle2 className="w-5 h-5 text-[#0F8F7A]" strokeWidth={1.5} />
         }
       ]
@@ -62,22 +83,38 @@ const WhatWeDoSection = () => {
       services: [
         {
           title: 'AIF Setup',
-          items: ['Fund Structuring', 'AIF Documentation', 'AIF Application Process'],
+          items: [
+            { label: 'Fund Structuring', id: 'fund-structuring' },
+            { label: 'AIF Documentation', id: 'aif-documentation' },
+            { label: 'AIF Application Process', id: 'aif-application-process' }
+          ],
           icon: <Briefcase className="w-5 h-5 text-[#0F8F7A]" strokeWidth={1.5} />
         },
         {
           title: 'Investment Support',
-          items: ['Due Diligence', 'Transaction Agreements', 'Investment Transaction Advisory'],
+          items: [
+            { label: 'Due Diligence', id: 'due-diligence' },
+            { label: 'Transaction Agreements', id: 'transaction-agreements' },
+            { label: 'Investment Transaction Advisory', id: 'investment-transaction-advisory' }
+          ],
           icon: <TrendingUp className="w-5 h-5 text-[#0F8F7A]" strokeWidth={1.5} />
         },
         {
           title: 'Lifecycle Assistance',
-          items: ['Fund Operations & Vendor Mgmt', 'Tax and Regulatory Advisory', 'Governance and Legal Support'],
+          items: [
+            { label: 'Fund Operations & Vendor Mgmt', id: 'fund-operations-vendor-mgmt' },
+            { label: 'Tax and Regulatory Advisory', id: 'tax-regulatory-advisory' },
+            { label: 'Governance and Legal Support', id: 'governance-legal-support' }
+          ],
           icon: <CheckCircle2 className="w-5 h-5 text-[#0F8F7A]" strokeWidth={1.5} />
         },
         {
           title: 'Exit Support',
-          items: ['Due Diligence for Exits', 'Transaction Advisory', 'Exit Agreements'],
+          items: [
+            { label: 'Due Diligence for Exits', id: 'due-diligence-for-exits' },
+            { label: 'Transaction Advisory', id: 'transaction-advisory' },
+            { label: 'Exit Agreements', id: 'exit-agreements' }
+          ],
           icon: <ArrowUpRight className="w-5 h-5 text-[#0F8F7A]" strokeWidth={1.5} />
         }
       ]
@@ -90,32 +127,43 @@ const WhatWeDoSection = () => {
       services: [
         {
           title: 'Foreign Setup',
-          items: ['Jurisdiction Selection', 'Entity Incorporation', 'Local Compliance Setup'],
+          items: [
+            { label: 'Jurisdiction Selection', id: 'jurisdiction-selection' },
+            { label: 'Entity Incorporation', id: 'entity-incorporation' },
+            { label: 'Local Compliance Setup', id: 'local-compliance-setup' }
+          ],
           icon: <Globe className="w-5 h-5 text-[#0F8F7A]" strokeWidth={1.5} />
         },
         {
           title: 'India Entry',
-          items: ['India Entity Integration', 'Tax & Legal Advisory', 'Parent-Subsidiary Structuring'],
+          items: [
+            { label: 'India Entity Integration', id: 'india-entity-integration' },
+            { label: 'Tax & Legal Advisory', id: 'tax-legal-advisory' },
+            { label: 'Parent-Subsidiary Structuring', id: 'parent-subsidiary-structuring' }
+          ],
           icon: <Rocket className="w-5 h-5 text-[#0F8F7A]" strokeWidth={1.5} />
         },
         {
           title: 'Global Compliances',
-          items: ['Transfer Pricing Advisory', 'International Tax Compliance', 'Regulatory Management'],
+          items: [
+            { label: 'Transfer Pricing Advisory', id: 'transfer-pricing-advisory' },
+            { label: 'International Tax Compliance', id: 'international-tax-compliance' },
+            { label: 'Regulatory Management', id: 'regulatory-management' }
+          ],
           icon: <Scale className="w-5 h-5 text-[#0F8F7A]" strokeWidth={1.5} />
         },
         {
           title: 'GIFT IFSC',
-          items: ['Setup Assistance', 'Regulatory & Tax Advisory', 'Legal & Compliance Support'],
+          items: [
+            { label: 'Setup Assistance', id: 'setup-assistance' },
+            { label: 'Regulatory & Tax Advisory', id: 'regulatory-tax-advisory-ifsc' },
+            { label: 'Legal & Compliance Support', id: 'legal-compliance-support' }
+          ],
           icon: <Briefcase className="w-5 h-5 text-[#0F8F7A]" strokeWidth={1.5} />
         }
       ]
     }
   ];
-
-  // Flatten all services with category info
-  const allServices = categories.flatMap(category =>
-    category.services.map(service => ({ ...service, category: category.title }))
-  );
 
   return (
     <section id="what-we-do" className="bg-[#F0EEE9] py-20 px-6 lg:px-12 border-b border-[#1F1F1F]/5">
@@ -185,9 +233,12 @@ const WhatWeDoSection = () => {
                       {service.items.map((item, i) => (
                         <li key={i} className="flex items-start gap-3 group/item">
                           <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#0F8F7A]/40 group-hover/item:bg-[#0F8F7A] transition-colors duration-300 shrink-0" />
-                          <span className="text-sm text-[#4B4B4B] font-sans leading-relaxed group-hover/item:text-[#1F1F1F] transition-colors duration-300">
-                            {item}
-                          </span>
+                          <Link
+                            to={`/services/${item.id}`}
+                            className="text-sm text-[#4B4B4B] font-sans leading-relaxed group-hover/item:text-[#1F1F1F] group-hover/item:underline decoration-[#0F8F7A]/30 hover:decoration-[#0F8F7A] transition-all duration-300"
+                          >
+                            {item.label}
+                          </Link>
                         </li>
                       ))}
                     </ul>
