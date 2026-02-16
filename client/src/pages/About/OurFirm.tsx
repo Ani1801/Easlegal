@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import HowWeWorkSection from '@/features/process/HowWeWorkSection';
 
 const OurFirm = () => {
     // Section 3: Value Pillars
@@ -104,35 +105,11 @@ const OurFirm = () => {
                 </div>
             </section>
 
-            {/* 5️⃣ SECTION 5 — How We Work (Pure White #FFFFFF) */}
-            <section className="py-20 px-6 lg:px-12 bg-white border-b border-[#1F1F1F]/5">
-                <div className="max-w-7xl mx-auto">
-                    <div className="mb-16 text-center">
-                        <span className="block text-[#0D9488] uppercase tracking-widest text-xs font-bold mb-4">
-                            Methodology
-                        </span>
-                        <h2 className="text-3xl md:text-4xl font-sans font-bold text-[#1F1F1F]">Our Approach</h2>
-                    </div>
-
-                    <div className="grid md:grid-cols-4 gap-6 relative">
-                        {/* Connecting Line (Desktop) */}
-                        <div className="hidden md:block absolute top-10 left-0 right-0 h-px bg-[#1F1F1F]/10 -z-10"></div>
-
-                        {processSteps.map((step, index) => (
-                            <div key={index} className="relative bg-white pt-6 md:pt-0">
-                                <div className="w-20 h-20 bg-white border border-[#1F1F1F]/10 rounded-full flex items-center justify-center mb-6 mx-auto md:mx-0 relative z-10 shadow-sm">
-                                    <span className="text-lg font-bold text-[#0D9488] font-mono">{step.number}</span>
-                                </div>
-                                <h3 className="text-lg font-bold font-sans text-[#1F1F1F] mb-3 text-center md:text-left">{step.title}</h3>
-                                <p className="text-[#1F1F1F]/70 text-sm leading-relaxed text-center md:text-left max-w-xs mx-auto md:mx-0">{step.desc}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            {/* 5️⃣ SECTION 5 — How We Work (Methodology) */}
+            <HowWeWorkSection />
 
             {/* 6️⃣ SECTION 6 — Institutional Collaboration (Cloud Dancer #F0EEE9) */}
-            <section className="py-20 px-6 lg:px-12 bg-[#F0EEE9]">
+            <section className="py-20 px-6 lg:px-12 bg-white">
                 <div className="max-w-4xl mx-auto text-center mb-12">
                     <h2 className="text-3xl font-playfair font-medium text-[#1F1F1F] mb-6">An Integrated Advisory Ecosystem</h2>
                     <p className="text-lg text-[#1F1F1F]/70 leading-relaxed max-w-2xl mx-auto">

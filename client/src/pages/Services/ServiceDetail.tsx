@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import { servicesData } from '@/data/services';
 
 const ServiceDetail = () => {
@@ -33,7 +33,7 @@ const ServiceDetail = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <span className="block text-[#0D9488] uppercase tracking-widest text-xs font-bold mb-6">
+                        <span className="block text-[#0D9488] uppercase tracking-widest text-2xl font-bold mb-3">
                             SERVICE EXPERTISE
                         </span>
                         <h1 className="font-playfair font-medium text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight mb-6 text-[#1F1F1F]">
@@ -57,15 +57,19 @@ const ServiceDetail = () => {
                             {service.details}
                         </p>
 
-                        <h3 className="text-lg font-bold text-[#1F1F1F] mb-6 uppercase tracking-wider">Key Deliverables</h3>
-                        <ul className="space-y-4">
-                            {service.deliverables.map((item, index) => (
-                                <li key={index} className="flex items-start gap-3">
-                                    <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#0D9488] shrink-0" />
-                                    <span className="text-[#1F1F1F]/80">{item}</span>
-                                </li>
-                            ))}
-                        </ul>
+                        <div className="bg-white/40 p-8 rounded-2xl border border-[#1F1F1F]/5 shadow-sm">
+                            <h3 className="text-lg font-bold text-[#1F1F1F] mb-6 uppercase tracking-wider">Key Deliverables</h3>
+                            <ul className="space-y-4">
+                                {service.deliverables.map((item, index) => (
+                                    <li key={index} className="flex items-start gap-3">
+                                        <div className="mt-1 shrink-0 text-[#0D9488]">
+                                            <Check size={18} strokeWidth={2.5} />
+                                        </div>
+                                        <span className="text-[#1F1F1F]/80 font-medium">{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
 
                     {/* Right Column: Structural Value Grid */}
@@ -76,18 +80,21 @@ const ServiceDetail = () => {
                                 Structural Value
                             </h2>
                             <div className="grid sm:grid-cols-2 gap-4">
-                                {service.benefits.map((benefit, index) => (
-                                    <div
-                                        key={index}
-                                        className="bg-white p-6 rounded-xl shadow-sm border border-[#1F1F1F]/5 hover:border-[#0D9488]/30 transition-all duration-300"
-                                    >
-                                        <div className="text-[#0D9488] mb-3">
-                                            <CheckCircle2 size={20} strokeWidth={1.5} />
+                                {service.benefits.map((benefit, index) => {
+                                    const Icon = benefit.icon;
+                                    return (
+                                        <div
+                                            key={index}
+                                            className="bg-white p-6 rounded-xl shadow-sm border border-[#1F1F1F]/5 hover:border-[#0D9488]/30 transition-all duration-300"
+                                        >
+                                            <div className="text-[#0D9488] mb-3">
+                                                <Icon size={24} strokeWidth={1.5} />
+                                            </div>
+                                            <h3 className="font-bold text-[#1F1F1F] mb-2 text-sm">{benefit.title}</h3>
+                                            <p className="text-xs text-[#1F1F1F]/60 leading-relaxed">{benefit.desc}</p>
                                         </div>
-                                        <h3 className="font-bold text-[#1F1F1F] mb-2 text-sm">{benefit.title}</h3>
-                                        <p className="text-xs text-[#1F1F1F]/60 leading-relaxed">{benefit.desc}</p>
-                                    </div>
-                                ))}
+                                    );
+                                })}
                             </div>
                         </div>
                     </div>

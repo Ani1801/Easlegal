@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, Linkedin, Instagram } from 'lucide-react';
+import { Mail, Phone, Linkedin, Instagram, ArrowRight } from 'lucide-react';
 
 const OurTeam = () => {
     const partners = [
@@ -13,7 +13,7 @@ const OurTeam = () => {
                 "Advisor to 50+ High-Growth Startups",
                 "Specialist in Cross-Border Transactions"
             ],
-            image: "/path/to/image_a82e5b.jpg", // Placeholder
+            image: "", // Image removed as per request
             socials: { linkedin: "#", email: "ankit@easlegal.com", phone: "+91 9876543210", instagram: "#" }
         },
         {
@@ -25,43 +25,43 @@ const OurTeam = () => {
                 "Ex-Big 4 Consultant",
                 "Expert in Startup Valuation and Diligence"
             ],
-            image: "/path/to/image_a88035.jpg", // Placeholder
+            image: "", // Image removed as per request
             socials: { linkedin: "#", email: "vivek@easlegal.com", phone: "+91 9876543211", instagram: "#" }
         }
     ];
 
     const experts = [
-        { name: "Protiti Basu", specialty: "EU GDPR, UK GDPR, CCPA", bio: "External DPO Services & Data Protection in Healthcare." },
-        { name: "Vikas Singh Chauhan (CA)", specialty: "CROSS-BORDER TAXATION", bio: "Global Tax & Expatriate Services, Chartered Accountant." },
-        { name: "Salim Hooda", specialty: "LABOUR & EMPLOYMENT", bio: "Handling disputes, arbitration, and PPP contracts." },
-        { name: "Prema Vashisht", specialty: "FAMILY LAW & IPR", bio: "Litigation handling for family law, IPR, and labour disputes." },
-        { name: "Saptarko Biswas", specialty: "ESG CONSULTING & SAAS", bio: "EU GDPR German Market Expert." },
-        { name: "Sunny Vashisht", specialty: "CORPORATE LITIGATION", bio: "Land & Property Disputes, Arbitration." },
-        { name: "Arun Jain", specialty: "INDIRECT TAX & FEMA", bio: "Customs, VAT, Service Tax, Excise, PMLA, and Anti-Dumping." },
+        { name: "Protiti Basu", specialty: "EU GDPR, UK GDPR, CCPA", bio: "External DPO Services & Data Protection in Healthcare.", image: "/testimonial-1.jpg" },
+        { name: "Vikas Singh Chauhan (CA)", specialty: "CROSS-BORDER TAXATION", bio: "Global Tax & Expatriate Services, Chartered Accountant.", image: "/testimonial-2.jpg" },
+        { name: "Salim Hooda", specialty: "LABOUR & EMPLOYMENT", bio: "Handling disputes, arbitration, and PPP contracts.", image: "/testimonial-3.jpg" },
+        { name: "Prema Vashisht", specialty: "FAMILY LAW & IPR", bio: "Litigation handling for family law, IPR, and labour disputes.", image: "/testimonial-4.jpg" },
+        { name: "Saptarko Biswas", specialty: "ESG CONSULTING & SAAS", bio: "EU GDPR German Market Expert.", image: "/testimonial-5.jpg" },
+        { name: "Sunny Vashisht", specialty: "CORPORATE LITIGATION", bio: "Land & Property Disputes, Arbitration.", image: "/testimonial-6.jpg" },
+        { name: "Arun Jain", specialty: "INDIRECT TAX & FEMA", bio: "Customs, VAT, Service Tax, Excise, PMLA, and Anti-Dumping.", image: "/testimonial-7.jpg" },
     ];
 
     return (
         <main className="font-sans text-[#1F1F1F]">
             {/* 1. The Team Hero */}
-            <section className="bg-[#F0EEE9] py-24 px-6 lg:px-12 border-b border-[#1F1F1F]/5">
-                <div className="max-w-5xl mx-auto text-center">
-                    <motion.h1
+            <section className="relative py-20 lg:py-32 px-6 lg:px-12 bg-[#F0EEE9] border-b border-[#1F1F1F]/5">
+                <div className="max-w-3xl mx-auto text-center">
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="font-playfair italic text-5xl md:text-7xl text-[#1F1F1F] mb-6 tracking-tight leading-[1.1]"
                     >
-                        The Architects of <br className="hidden md:block" />
-                        <span className="not-italic font-bold">Legal Strategy.</span>
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="font-sans text-xl md:text-2xl text-[#1F1F1F]/70 leading-relaxed max-w-3xl mx-auto"
-                    >
-                        A collective of domain experts engineering certainty for global founders.
-                    </motion.p>
+                        <span className="block text-[#0D9488] uppercase tracking-widest text-xs font-bold mb-6">
+                            OUR EXPERTS
+                        </span>
+                        <h1 className="font-playfair font-medium text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight mb-6 text-[#1F1F1F]">
+                            The Architects of <br className="hidden md:block" />
+                            Legal Strategy.
+                        </h1>
+                        <div className="h-px w-24 bg-[#0D9488] mx-auto mb-8"></div>
+                        <p className="font-sans text-lg md:text-xl text-[#1F1F1F]/70 leading-relaxed max-w-2xl mx-auto">
+                            A collective of domain experts engineering certainty for global founders.
+                        </p>
+                    </motion.div>
                 </div>
             </section>
 
@@ -73,9 +73,17 @@ const OurTeam = () => {
                             {/* Partner Image: Left */}
                             <div className="relative z-0">
                                 <div className="aspect-[4/3] max-h-[450px] w-full relative overflow-hidden rounded-lg shadow-md">
-                                    <div className="absolute inset-0 bg-[#F0EEE9] flex items-center justify-center text-gray-400 font-bold uppercase tracking-widest">
-                                        {partner.name} Photo
-                                    </div>
+                                    {partner.image ? (
+                                        <img
+                                            src={partner.image}
+                                            alt={partner.name}
+                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                        />
+                                    ) : (
+                                        <div className="absolute inset-0 bg-[#F0EEE9] flex items-center justify-center text-gray-400 font-bold uppercase tracking-widest">
+                                            {partner.name}
+                                        </div>
+                                    )}
                                 </div>
                             </div>
 
@@ -127,6 +135,11 @@ const OurTeam = () => {
                     <blockquote className="font-playfair italic text-3xl md:text-5xl leading-tight opacity-90">
                         "We believe clarity in law creates confidence in growth."
                     </blockquote>
+                    <div className="mt-10">
+                        <button className="bg-[#0D9488] hover:bg-[#0F766E] text-white transition-all duration-300 rounded-full h-14 px-10 text-sm font-bold uppercase tracking-widest shadow-xl hover:shadow-2xl hover:-translate-y-1 inline-flex items-center gap-3">
+                            Book a Consultation <ArrowRight size={18} />
+                        </button>
+                    </div>
                 </div>
             </section>
 
@@ -138,14 +151,18 @@ const OurTeam = () => {
                         <h2 className="text-3xl md:text-4xl font-sans font-bold text-[#1F1F1F] mt-3 tracking-tight">Our Specialized Experts</h2>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                         {experts.map((expert, index) => (
                             <div
                                 key={index}
                                 className={`bg-white p-8 rounded-2xl shadow-sm border border-[#1F1F1F]/5 hover:-translate-y-1 transition-transform duration-300 flex flex-col items-center text-center ${index === 6 ? 'lg:col-start-2' : ''}`}
                             >
-                                <div className="w-24 h-24 bg-[#F0EEE9] rounded-full mb-6 mx-auto flex items-center justify-center text-[#1F1F1F]/20 font-bold">
-                                    IMG
+                                <div className="w-32 h-32 mb-8 mx-auto rounded-full overflow-hidden border-4 border-[#F0EEE9] shadow-sm">
+                                    <img
+                                        src={expert.image}
+                                        alt={expert.name}
+                                        className="w-full h-full object-cover"
+                                    />
                                 </div>
                                 <h3 className="text-xl font-bold font-sans text-[#1F1F1F] mb-1 tracking-tight">{expert.name}</h3>
                                 <span className="block text-[#0D9488] text-xs font-bold uppercase tracking-widest mb-4">{expert.specialty}</span>
@@ -163,6 +180,8 @@ const OurTeam = () => {
                             </div>
                         ))}
                     </div>
+
+
                 </div>
             </section>
         </main>

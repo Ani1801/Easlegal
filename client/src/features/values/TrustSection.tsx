@@ -98,16 +98,20 @@ const TrustSection = () => {
 
         {/* 2-Column Layout: Static Rating Card vs Vertical Carousel */}
         {/* Reduced height to h-[300px] as requested */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch h-[320px]">
+        {/* 2-Column Layout: Static Rating Card vs Vertical Carousel */}
+        {/* Reduced height to h-[300px] as requested */}
+        {/* 2-Column Layout: Static Rating Card vs Vertical Carousel */}
+        {/* Reduced height to h-[300px] as requested */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start lg:items-stretch lg:h-[320px]">
 
           {/* Left Column: Fixed Rating Card (Span 4) */}
-          <div className="lg:col-span-4 h-full">
+          <div className="lg:col-span-4 lg:h-full w-full">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="bg-white border border-[#1F1F1F]/8 rounded-lg p-6 shadow-sm flex flex-col items-center justify-center text-center h-full w-full"
+              className="bg-white border border-[#1F1F1F]/8 rounded-lg p-6 shadow-sm flex flex-col items-center justify-center text-center h-full w-full min-h-[250px] lg:min-h-0"
             >
               <div className="text-7xl font-sans font-extrabold text-[#0F8F7A] mb-3 tracking-tighter">
                 4.9
@@ -137,7 +141,7 @@ const TrustSection = () => {
 
           {/* Right Column: Dynamic Vertical Carousel (Span 8) */}
           <div
-            className="lg:col-span-8 h-full relative"
+            className="lg:col-span-8 w-full h-[400px] lg:h-full relative"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >

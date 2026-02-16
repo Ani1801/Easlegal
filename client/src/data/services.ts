@@ -1,3 +1,11 @@
+import {
+    Calculator, FileCheck, Landmark, PiggyBank,
+    Users, Briefcase, TrendingUp, ShieldCheck,
+    Scale, ScrollText, Gavel, Globe,
+    Building2, FileText, BadgeCheck,
+    Plane, Map, Network, ArrowUpRight, Award, Flag, Smile
+} from 'lucide-react';
+
 export interface ServiceData {
     id: string;
     title: string;
@@ -8,6 +16,7 @@ export interface ServiceData {
     benefits: {
         title: string;
         desc: string;
+        icon: any;
     }[];
 }
 
@@ -22,10 +31,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/accounting.jpg',
         deliverables: ['Accurate Financial Records', 'Timely Tax Filings', 'Reconciliations', 'Cross-border Compliance'],
         benefits: [
-            { title: 'Accuracy', desc: 'Precision in every financial record.' },
-            { title: 'Compliance', desc: 'Adherence to all legal requirements.' },
-            { title: 'Focus', desc: 'Free up time to grow your business.' },
-            { title: 'Timeliness', desc: 'Never miss a filing deadline.' }
+            { title: 'Accuracy', desc: 'Precision in every financial record.', icon: Calculator },
+            { title: 'Compliance', desc: 'Adherence to all legal requirements.', icon: FileCheck },
+            { title: 'Focus', desc: 'Free up time to grow your business.', icon: TrendingUp },
+            { title: 'Timeliness', desc: 'Never miss a filing deadline.', icon: ArrowUpRight }
         ]
     },
     'payroll-management': {
@@ -36,10 +45,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/payroll.jpg',
         deliverables: ['Salary Structuring', 'Employee Tax Optimization', 'Statutory Compliance', 'Timely Processing'],
         benefits: [
-            { title: 'Accuracy', desc: 'Zero errors in payroll processing.' },
-            { title: 'Compliance', desc: 'Full adherence to statutory laws.' },
-            { title: 'Optimization', desc: 'Tax-efficient salary structures.' },
-            { title: 'Reliability', desc: 'On-time payments, every time.' }
+            { title: 'Accuracy', desc: 'Zero errors in payroll processing.', icon: Calculator },
+            { title: 'Compliance', desc: 'Full adherence to statutory laws.', icon: Scale },
+            { title: 'Optimization', desc: 'Tax-efficient salary structures.', icon: PiggyBank },
+            { title: 'Reliability', desc: 'On-time payments, every time.', icon: FileCheck }
         ]
     },
     'mis-and-budgeting': {
@@ -50,10 +59,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/mis.jpg',
         deliverables: ['Financial Forecasting', 'Expense Tracking', 'Performance Monitoring', 'Growth Planning'],
         benefits: [
-            { title: 'Insight', desc: 'Data-driven decision making.' },
-            { title: 'Control', desc: 'Better expense tracking.' },
-            { title: 'Planning', desc: 'Structured growth strategies.' },
-            { title: 'Clarity', desc: 'Clear view of business health.' }
+            { title: 'Insight', desc: 'Data-driven decision making.', icon: Landmark },
+            { title: 'Control', desc: 'Better expense tracking.', icon: Calculator },
+            { title: 'Planning', desc: 'Structured growth strategies.', icon: TrendingUp },
+            { title: 'Clarity', desc: 'Clear view of business health.', icon: FileText }
         ]
     },
     'due-diligence-support': {
@@ -64,10 +73,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/due-diligence.jpg',
         deliverables: ['Comprehensive Reviews', 'Readiness Assessments', 'Vendor Diligence', 'Legal Diligence'],
         benefits: [
-            { title: 'Readiness', desc: 'Be prepared for fundraising.' },
-            { title: 'Compliance', desc: 'Ensure all boxes are checked.' },
-            { title: 'Confidence', desc: 'Face investors with certainty.' },
-            { title: 'Speed', desc: 'Faster closing of rounds.' }
+            { title: 'Readiness', desc: 'Be prepared for fundraising.', icon: Briefcase },
+            { title: 'Compliance', desc: 'Ensure all boxes are checked.', icon: FileCheck },
+            { title: 'Confidence', desc: 'Face investors with certainty.', icon: ShieldCheck },
+            { title: 'Speed', desc: 'Faster closing of rounds.', icon: ArrowUpRight }
         ]
     },
     'financial-modeling': {
@@ -78,10 +87,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/modeling.jpg',
         deliverables: ['Revenue Forecasts', 'Cash Flow Projections', 'Scenario Analysis', 'Investor-Ready Models'],
         benefits: [
-            { title: 'Credibility', desc: 'Professional models investors trust.' },
-            { title: 'Clarity', desc: 'Clear financial roadmap.' },
-            { title: 'Strategy', desc: 'Informed business decisions.' },
-            { title: 'Fundraising', desc: 'Essential tool for raising capital.' }
+            { title: 'Credibility', desc: 'Professional models investors trust.', icon: BadgeCheck },
+            { title: 'Clarity', desc: 'Clear financial roadmap.', icon: Map },
+            { title: 'Strategy', desc: 'Informed business decisions.', icon: TrendingUp },
+            { title: 'Fundraising', desc: 'Essential tool for raising capital.', icon: Landmark }
         ]
     },
 
@@ -94,10 +103,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/legal.jpg',
         deliverables: ['Term Sheet Negotiations', 'Deal Structuring', 'Cross-border Support', 'Transaction Closing'],
         benefits: [
-            { title: 'Expertise', desc: 'Sector-agnostic transaction knowledge.' },
-            { title: 'Global Reach', desc: 'Support for cross-border deals.' },
-            { title: 'Structuring', desc: 'Optimal deal architecture.' },
-            { title: 'Success', desc: 'Guided path to closing.' }
+            { title: 'Expertise', desc: 'Sector-agnostic transaction knowledge.', icon: Briefcase },
+            { title: 'Global Reach', desc: 'Support for cross-border deals.', icon: Globe },
+            { title: 'Structuring', desc: 'Optimal deal architecture.', icon: Building2 },
+            { title: 'Success', desc: 'Guided path to closing.', icon: Award }
         ]
     },
     'legal-contracts': {
@@ -108,10 +117,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/contracts.jpg',
         deliverables: ['Drafting', 'Review', 'Negotiation', 'Compliance Check'],
         benefits: [
-            { title: 'Protection', desc: 'Safeguard your interests.' },
-            { title: 'Clarity', desc: 'Unambiguous terms.' },
-            { title: 'Compliance', desc: 'Legally sound agreements.' },
-            { title: 'Efficiency', desc: 'Faster turnaround times.' }
+            { title: 'Protection', desc: 'Safeguard your interests.', icon: ShieldCheck },
+            { title: 'Clarity', desc: 'Unambiguous terms.', icon: FileText },
+            { title: 'Compliance', desc: 'Legally sound agreements.', icon: Scale },
+            { title: 'Efficiency', desc: 'Faster turnaround times.', icon: TrendingUp }
         ]
     },
     'ipr-protection': {
@@ -122,10 +131,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/ipr.jpg',
         deliverables: ['Trademarks', 'Copyrights', 'Patents', 'IP Strategy'],
         benefits: [
-            { title: 'Protection', desc: 'Secure your innovations.' },
-            { title: 'Strategy', desc: 'Cost-effective IP management.' },
-            { title: 'Growth', desc: 'Asset for business development.' },
-            { title: 'Global', desc: 'Domestic and international coverage.' }
+            { title: 'Protection', desc: 'Secure your innovations.', icon: ShieldCheck },
+            { title: 'Strategy', desc: 'Cost-effective IP management.', icon: PiggyBank },
+            { title: 'Growth', desc: 'Asset for business development.', icon: TrendingUp },
+            { title: 'Global', desc: 'Domestic and international coverage.', icon: Globe }
         ]
     },
     'posh-compliance': {
@@ -136,10 +145,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/posh.jpg',
         deliverables: ['Policy Drafting', 'IC Establishment', 'Training', 'Compliance Audits'],
         benefits: [
-            { title: 'Safety', desc: 'Create a safe work environment.' },
-            { title: 'Compliance', desc: 'Adherence to POSH Act.' },
-            { title: 'Training', desc: 'Empower your team.' },
-            { title: 'Prevention', desc: 'Effective harassment prevention.' }
+            { title: 'Safety', desc: 'Create a safe work environment.', icon: ShieldCheck },
+            { title: 'Compliance', desc: 'Adherence to POSH Act.', icon: Scale },
+            { title: 'Training', desc: 'Empower your team.', icon: Users },
+            { title: 'Prevention', desc: 'Effective harassment prevention.', icon: Gavel }
         ]
     },
 
@@ -152,10 +161,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/incorporation.jpg',
         deliverables: ['Company Incorporation', 'GST Registration', 'Digital Signatures', 'Regulatory Compliance'],
         benefits: [
-            { title: 'Speed', desc: 'Quick entity setup.' },
-            { title: 'Compliance', desc: 'Meet all regulatory norms.' },
-            { title: 'Full Service', desc: 'End-to-end registration support.' },
-            { title: 'Expertise', desc: 'Navigate bureaucracy with ease.' }
+            { title: 'Speed', desc: 'Quick entity setup.', icon: TrendingUp },
+            { title: 'Compliance', desc: 'Meet all regulatory norms.', icon: FileCheck },
+            { title: 'Full Service', desc: 'End-to-end registration support.', icon: Briefcase },
+            { title: 'Expertise', desc: 'Navigate bureaucracy with ease.', icon: Map }
         ]
     },
     'recurring-compliance': {
@@ -166,10 +175,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/compliance.jpg',
         deliverables: ['Periodic Filings', 'Regulatory Submissions', 'Compliance Audits', 'Updates'],
         benefits: [
-            { title: 'Peace of Mind', desc: 'Never worry about deadlines.' },
-            { title: 'Accuracy', desc: 'Error-free filings.' },
-            { title: 'Updates', desc: 'Stay ahead of regulations.' },
-            { title: 'Efficiency', desc: 'Streamlined compliance process.' }
+            { title: 'Peace of Mind', desc: 'Never worry about deadlines.', icon: ShieldCheck },
+            { title: 'Accuracy', desc: 'Error-free filings.', icon: FileCheck },
+            { title: 'Updates', desc: 'Stay ahead of regulations.', icon: Network },
+            { title: 'Efficiency', desc: 'Streamlined compliance process.', icon: TrendingUp }
         ]
     },
     'event-based-compliances': {
@@ -180,10 +189,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/event-compliance.jpg',
         deliverables: ['Event Filings', 'Regulatory Submissions', 'Audit Services', 'Documentation'],
         benefits: [
-            { title: 'Responsiveness', desc: 'Quick action on events.' },
-            { title: 'Compliance', desc: 'Adherence to event regulations.' },
-            { title: 'Accuracy', desc: 'Precise documentation.' },
-            { title: 'Support', desc: 'Expert guidance.' }
+            { title: 'Responsiveness', desc: 'Quick action on events.', icon: TrendingUp },
+            { title: 'Compliance', desc: 'Adherence to event regulations.', icon: FileCheck },
+            { title: 'Accuracy', desc: 'Precise documentation.', icon: FileText },
+            { title: 'Support', desc: 'Expert guidance.', icon: Users }
         ]
     },
     'fema-compliance': {
@@ -194,10 +203,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/fema.jpg',
         deliverables: ['FEMA Filings', 'Regulatory Submissions', 'Compliance Audits', ' Advisory'],
         benefits: [
-            { title: 'Compliance', desc: 'Adherence to forex laws.' },
-            { title: 'Risk Mgmt', desc: 'Avoid penalties.' },
-            { title: 'Accuracy', desc: 'precise reporting.' },
-            { title: 'Expertise', desc: 'Handle complex FEMA norms.' }
+            { title: 'Compliance', desc: 'Adherence to forex laws.', icon: Scale },
+            { title: 'Risk Mgmt', desc: 'Avoid penalties.', icon: ShieldCheck },
+            { title: 'Accuracy', desc: 'precise reporting.', icon: FileCheck },
+            { title: 'Expertise', desc: 'Handle complex FEMA norms.', icon: Briefcase }
         ]
     },
 
@@ -210,10 +219,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/tax.jpg',
         deliverables: ['Tailored Solutions', 'Compliance Check', 'Optimization Strategy', 'Financial Strategy'],
         benefits: [
-            { title: 'Optimization', desc: 'Maximize financial efficiency.' },
-            { title: 'Compliance', desc: 'Stay within legal bounds.' },
-            { title: 'Strategy', desc: 'Long-term financial health.' },
-            { title: 'Customization', desc: 'Solutions for your specific needs.' }
+            { title: 'Optimization', desc: 'Maximize financial efficiency.', icon: TrendingUp },
+            { title: 'Compliance', desc: 'Stay within legal bounds.', icon: Scale },
+            { title: 'Strategy', desc: 'Long-term financial health.', icon: Landmark },
+            { title: 'Customization', desc: 'Solutions for your specific needs.', icon: Briefcase }
         ]
     },
     'regulatory-advisory': {
@@ -224,10 +233,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/regulatory.jpg',
         deliverables: ['Expert Advisory', 'Landscape Navigation', 'Legal Guidance', 'Risk Assessment'],
         benefits: [
-            { title: 'Expertise', desc: 'Deep regulatory knowledge.' },
-            { title: 'Ease', desc: 'Simplify complex laws.' },
-            { title: 'Security', desc: 'Mitigate legal risks.' },
-            { title: 'Clarity', desc: 'Understand your obligations.' }
+            { title: 'Expertise', desc: 'Deep regulatory knowledge.', icon: Briefcase },
+            { title: 'Ease', desc: 'Simplify complex laws.', icon: FileCheck },
+            { title: 'Security', desc: 'Mitigate legal risks.', icon: ShieldCheck },
+            { title: 'Clarity', desc: 'Understand your obligations.', icon: FileText }
         ]
     },
     'esop-advisor-equity': {
@@ -238,10 +247,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/esop.jpg',
         deliverables: ['ESOP Structuring', 'Phantom Stock', 'SARs', 'Custom Instruments'],
         benefits: [
-            { title: 'Retention', desc: 'Attract and keep top talent.' },
-            { title: 'Motivation', desc: 'Align employee interests.' },
-            { title: 'Innovation', desc: 'Creative compensation models.' },
-            { title: 'Tailored', desc: 'Strategies that fit your culture.' }
+            { title: 'Retention', desc: 'Attract and keep top talent.', icon: Users },
+            { title: 'Motivation', desc: 'Align employee interests.', icon: TrendingUp },
+            { title: 'Innovation', desc: 'Creative compensation models.', icon: PiggyBank },
+            { title: 'Tailored', desc: 'Strategies that fit your culture.', icon: Briefcase }
         ]
     },
 
@@ -255,10 +264,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/fund-structuring.jpg',
         deliverables: ['Category 1-3 Setup', 'Tax Alignment', 'Regulatory Compliance', 'Capital Raising Structure'],
         benefits: [
-            { title: 'Alignment', desc: 'Structure fits your goals.' },
-            { title: 'Compliance', desc: 'Adherence to regulations.' },
-            { title: 'Efficiency', desc: 'Optimized for operations.' },
-            { title: 'Expertise', desc: 'Deep AIF knowledge.' }
+            { title: 'Alignment', desc: 'Structure fits your goals.', icon: Map },
+            { title: 'Compliance', desc: 'Adherence to regulations.', icon: Scale },
+            { title: 'Efficiency', desc: 'Optimized for operations.', icon: TrendingUp },
+            { title: 'Expertise', desc: 'Deep AIF knowledge.', icon: Briefcase }
         ]
     },
     'aif-documentation': {
@@ -269,10 +278,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/documentation.jpg',
         deliverables: ['Drafting', 'Finalization', 'Legal Review', 'Compliance Check'],
         benefits: [
-            { title: 'Completeness', desc: 'All documents covered.' },
-            { title: 'Precision', desc: 'Legally sound drafts.' },
-            { title: 'Support', desc: 'End-to-end assistance.' },
-            { title: 'Speed', desc: 'Faster documentation process.' }
+            { title: 'Completeness', desc: 'All documents covered.', icon: FileText },
+            { title: 'Precision', desc: 'Legally sound drafts.', icon: Scale },
+            { title: 'Support', desc: 'End-to-end assistance.', icon: Users },
+            { title: 'Speed', desc: 'Faster documentation process.', icon: ArrowUpRight }
         ]
     },
     'aif-application-process': {
@@ -283,10 +292,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/application.jpg',
         deliverables: ['Process Navigation', 'Regulator Liaison', 'Submission Support', 'Follow-up'],
         benefits: [
-            { title: 'Guidance', desc: 'Expert navigation.' },
-            { title: 'Liaison', desc: 'Effective regulator communication.' },
-            { title: 'Success', desc: 'Higher approval chances.' },
-            { title: 'Ease', desc: 'Stress-free application.' }
+            { title: 'Guidance', desc: 'Expert navigation.', icon: Map },
+            { title: 'Liaison', desc: 'Effective regulator communication.', icon: Network },
+            { title: 'Success', desc: 'Higher approval chances.', icon: BadgeCheck },
+            { title: 'Ease', desc: 'Stress-free application.', icon: FileCheck }
         ]
     },
 
@@ -299,10 +308,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/dd-investors.jpg',
         deliverables: ['Financial Evaluation', 'Legal Assessment', 'Tax Review', 'Compliance Check'],
         benefits: [
-            { title: 'Clarity', desc: 'Understand strengths & risks.' },
-            { title: 'Safety', desc: 'Minimize investment risk.' },
-            { title: 'Alignment', desc: 'Fits your financial goals.' },
-            { title: 'Insight', desc: 'Deep dive into startup health.' }
+            { title: 'Clarity', desc: 'Understand strengths & risks.', icon: FileText },
+            { title: 'Safety', desc: 'Minimize investment risk.', icon: ShieldCheck },
+            { title: 'Alignment', desc: 'Fits your financial goals.', icon: TrendingUp },
+            { title: 'Insight', desc: 'Deep dive into startup health.', icon: Landmark }
         ]
     },
     'transaction-agreements': {
@@ -313,10 +322,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/transaction.jpg',
         deliverables: ['Structuring', 'Negotiation', 'Risk Mitigation', 'Smooth Process'],
         benefits: [
-            { title: 'Risk Reduction', desc: 'Minimize disputes.' },
-            { title: 'Smoothness', desc: 'Seamless transaction flow.' },
-            { title: 'Care', desc: 'Every aspect considered.' },
-            { title: 'Expertise', desc: 'Professional negotiation.' }
+            { title: 'Risk Reduction', desc: 'Minimize disputes.', icon: ShieldCheck },
+            { title: 'Smoothness', desc: 'Seamless transaction flow.', icon: TrendingUp },
+            { title: 'Care', desc: 'Every aspect considered.', icon: FileCheck },
+            { title: 'Expertise', desc: 'Professional negotiation.', icon: Briefcase }
         ]
     },
     'investment-transaction-advisory': {
@@ -327,10 +336,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/advisory.jpg',
         deliverables: ['Strategic Insights', 'Custom Solutions', 'Tax Efficiency', 'Compliance'],
         benefits: [
-            { title: 'Insight', desc: 'Data-driven strategy.' },
-            { title: 'Success', desc: 'Financial optimization.' },
-            { title: 'Compliance', desc: 'Regulatory adherence.' },
-            { title: 'Alignment', desc: 'Meets investment goals.' }
+            { title: 'Insight', desc: 'Data-driven strategy.', icon: Landmark },
+            { title: 'Success', desc: 'Financial optimization.', icon: TrendingUp },
+            { title: 'Compliance', desc: 'Regulatory adherence.', icon: Scale },
+            { title: 'Alignment', desc: 'Meets investment goals.', icon: BadgeCheck }
         ]
     },
 
@@ -343,10 +352,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/ops.jpg',
         deliverables: ['SPOC Services', 'Vendor Coordination', 'Operational Simplicity', 'Ecosystem Mgmt'],
         benefits: [
-            { title: 'Simplicity', desc: 'One point of contact.' },
-            { title: 'Coordination', desc: 'Seamless vendor mgmt.' },
-            { title: 'Efficiency', desc: 'Streamlined operations.' },
-            { title: 'Reach', desc: 'Access to essential providers.' }
+            { title: 'Simplicity', desc: 'One point of contact.', icon: Users },
+            { title: 'Coordination', desc: 'Seamless vendor mgmt.', icon: Network },
+            { title: 'Efficiency', desc: 'Streamlined operations.', icon: TrendingUp },
+            { title: 'Reach', desc: 'Access to essential providers.', icon: Globe }
         ]
     },
     'tax-regulatory-advisory': {
@@ -357,10 +366,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/tax-reg.jpg',
         deliverables: ['Ongoing Support', 'Regulatory Updates', 'Compliance Mgmt', 'Evolving Law Advice'],
         benefits: [
-            { title: 'Compliance', desc: 'Always up to date.' },
-            { title: 'Support', desc: 'Extensive assistance.' },
-            { title: 'Safety', desc: 'Adhere to laws.' },
-            { title: 'Knowledge', desc: 'Expert updates.' }
+            { title: 'Compliance', desc: 'Always up to date.', icon: Scale },
+            { title: 'Support', desc: 'Extensive assistance.', icon: Users },
+            { title: 'Safety', desc: 'Adhere to laws.', icon: ShieldCheck },
+            { title: 'Knowledge', desc: 'Expert updates.', icon: FileText }
         ]
     },
     'governance-legal-support': {
@@ -371,10 +380,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/governance.jpg',
         deliverables: ['Standard Establishment', 'Process Structuring', 'Enforcement', 'Framework Compliance'],
         benefits: [
-            { title: 'Efficiency', desc: 'Structured processes.' },
-            { title: 'Standards', desc: 'High governance quality.' },
-            { title: 'Compliance', desc: 'Legal framework adherence.' },
-            { title: 'Order', desc: 'Disciplined operations.' }
+            { title: 'Efficiency', desc: 'Structured processes.', icon: TrendingUp },
+            { title: 'Standards', desc: 'High governance quality.', icon: BadgeCheck },
+            { title: 'Compliance', desc: 'Legal framework adherence.', icon: Scale },
+            { title: 'Order', desc: 'Disciplined operations.', icon: FileCheck }
         ]
     },
 
@@ -387,10 +396,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/exit-dd.jpg',
         deliverables: ['Risk Identification', 'Value Maximization', 'Comprehensive DD', 'Informed Decisions'],
         benefits: [
-            { title: 'Value', desc: 'Maximize exit returns.' },
-            { title: 'Risk', desc: 'Identify potential pitfalls.' },
-            { title: 'Information', desc: 'Data-backed decisions.' },
-            { title: 'Success', desc: 'Smooth exit process.' }
+            { title: 'Value', desc: 'Maximize exit returns.', icon: PiggyBank },
+            { title: 'Risk', desc: 'Identify potential pitfalls.', icon: ShieldCheck },
+            { title: 'Information', desc: 'Data-backed decisions.', icon: FileText },
+            { title: 'Success', desc: 'Smooth exit process.', icon: Award }
         ]
     },
     'transaction-advisory': {
@@ -401,10 +410,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/exit-advisory.jpg',
         deliverables: ['Strategic Advice', 'Risk Assessment', 'Compliance Check', 'Process Mgmt'],
         benefits: [
-            { title: 'Strategy', desc: 'Optimal exit path.' },
-            { title: 'Value', desc: 'Maximize returns.' },
-            { title: 'Decisions', desc: 'Informed choices.' },
-            { title: 'Process', desc: 'Guided exit strategy.' }
+            { title: 'Strategy', desc: 'Optimal exit path.', icon: Map },
+            { title: 'Value', desc: 'Maximize returns.', icon: TrendingUp },
+            { title: 'Decisions', desc: 'Informed choices.', icon: FileText },
+            { title: 'Process', desc: 'Guided exit strategy.', icon: Briefcase }
         ]
     },
     'exit-agreements': {
@@ -415,10 +424,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/exit-agreements.jpg',
         deliverables: ['Agreement Drafting', 'Risk Assessment', 'Value Focus', 'Process Support'],
         benefits: [
-            { title: 'Security', desc: 'Solid legal footing.' },
-            { title: 'Value', desc: 'Protect exit value.' },
-            { title: 'Clarity', desc: 'Clear terms.' },
-            { title: 'Success', desc: 'Successful closing.' }
+            { title: 'Security', desc: 'Solid legal footing.', icon: ShieldCheck },
+            { title: 'Value', desc: 'Protect exit value.', icon: PiggyBank },
+            { title: 'Clarity', desc: 'Clear terms.', icon: FileText },
+            { title: 'Success', desc: 'Successful closing.', icon: Award }
         ]
     },
 
@@ -432,10 +441,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/jurisdiction.jpg',
         deliverables: ['Jurisdiction Analysis', 'Framework Assessment', 'Tax Regime Review', 'Structuring'],
         benefits: [
-            { title: 'Strategy', desc: 'Best country for you.' },
-            { title: 'Efficiency', desc: 'Legally sound structure.' },
-            { title: 'Scalability', desc: 'Built for growth.' },
-            { title: 'Insight', desc: 'Deep market knowledge.' }
+            { title: 'Strategy', desc: 'Best country for you.', icon: Map },
+            { title: 'Efficiency', desc: 'Legally sound structure.', icon: TrendingUp },
+            { title: 'Scalability', desc: 'Built for growth.', icon: Briefcase },
+            { title: 'Insight', desc: 'Deep market knowledge.', icon: Globe }
         ]
     },
     'entity-incorporation': {
@@ -446,10 +455,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/foreign-inc.jpg',
         deliverables: ['Structure Selection', 'Documentation', 'Local Registrations', 'Bank Accounts'],
         benefits: [
-            { title: 'Seamlessness', desc: 'Hassle-free setup.' },
-            { title: 'Compliance', desc: 'Local law adherence.' },
-            { title: 'Operations', desc: 'Ready for business.' },
-            { title: 'Alignment', desc: 'Fits business goals.' }
+            { title: 'Seamlessness', desc: 'Hassle-free setup.', icon: FileCheck },
+            { title: 'Compliance', desc: 'Local law adherence.', icon: Scale },
+            { title: 'Operations', desc: 'Ready for business.', icon: Briefcase },
+            { title: 'Alignment', desc: 'Fits business goals.', icon: TrendingUp }
         ]
     },
     'parent-subsidiary-structuring': { // Mapped from "Parent-Subsidiary Structuring and Transfer Pricing" to match "Parent-Subsidiary Structuring" route or "Local Compliance" as user list had "Local Compliance Setup" in navbar but "Parent..." here? 
@@ -470,10 +479,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/parent-sub.jpg',
         deliverables: ['Model Design', 'Transfer Pricing', 'Documentation', 'Audit Readiness'],
         benefits: [
-            { title: 'Optimization', desc: 'Tax efficient models.' },
-            { title: 'Compliance', desc: 'International guidelines.' },
-            { title: 'Risk Min', desc: 'Lower tax risk.' },
-            { title: 'Support', desc: 'Global ops backing.' }
+            { title: 'Optimization', desc: 'Tax efficient models.', icon: PiggyBank },
+            { title: 'Compliance', desc: 'International guidelines.', icon: Scale },
+            { title: 'Risk Min', desc: 'Lower tax risk.', icon: ShieldCheck },
+            { title: 'Support', desc: 'Global ops backing.', icon: Globe }
         ]
     },
     'local-compliance-setup': {
@@ -488,10 +497,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/local-comp.jpg',
         deliverables: ['Compliance Framework', 'Tax Registrations', 'Statutory Filings', 'Local Adherence'],
         benefits: [
-            { title: 'Start', desc: 'Compliant from day one.' },
-            { title: 'Framework', desc: 'Robust systems.' },
-            { title: 'Safety', desc: 'Avoid local penalties.' },
-            { title: 'Confidence', desc: 'Operate freely.' }
+            { title: 'Start', desc: 'Compliant from day one.', icon: Flag },
+            { title: 'Framework', desc: 'Robust systems.', icon: Building2 },
+            { title: 'Safety', desc: 'Avoid local penalties.', icon: ShieldCheck },
+            { title: 'Confidence', desc: 'Operate freely.', icon: Smile }
         ]
     },
 
@@ -505,10 +514,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/india-inc.jpg',
         deliverables: ['Registration', 'Structure Selection', 'Compliance Check', 'Process Mgmt'],
         benefits: [
-            { title: 'Efficiency', desc: 'Hassle-free process.' },
-            { title: 'Compliance', desc: 'Adhere to Indian laws.' },
-            { title: 'Support', desc: 'Expert guidance.' },
-            { title: 'Options', desc: 'Pvt Ltd, LLP, Branch.' }
+            { title: 'Efficiency', desc: 'Hassle-free process.', icon: TrendingUp },
+            { title: 'Compliance', desc: 'Adhere to Indian laws.', icon: Scale },
+            { title: 'Support', desc: 'Expert guidance.', icon: Users },
+            { title: 'Options', desc: 'Pvt Ltd, LLP, Branch.', icon: Building2 }
         ]
     },
     'tax-legal-advisory': {
@@ -519,10 +528,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/india-advisory.jpg',
         deliverables: ['Legal Structure', 'Tax Framework', 'Registration', 'Process Simplification'],
         benefits: [
-            { title: 'Comprehensive', desc: 'All aspects covered.' },
-            { title: 'Expertise', desc: 'Deep Indian market knowledge.' },
-            { title: 'Efficiency', desc: 'Simplified processes.' },
-            { title: 'Compliance', desc: 'Regulatory adherence.' }
+            { title: 'Comprehensive', desc: 'All aspects covered.', icon: FileText },
+            { title: 'Expertise', desc: 'Deep Indian market knowledge.', icon: Briefcase },
+            { title: 'Efficiency', desc: 'Simplified processes.', icon: TrendingUp },
+            { title: 'Compliance', desc: 'Regulatory adherence.', icon: Scale }
         ]
     },
     // 'parent-subsidiary-structuring' is already defined above. Route uses it.
@@ -536,10 +545,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/tp.jpg',
         deliverables: ['Pricing Policies', 'Documentation', 'Risk Mgmt', 'Audit Support'],
         benefits: [
-            { title: 'Compliance', desc: 'Global regulation adherence.' },
-            { title: 'Strategy', desc: 'Risk management.' },
-            { title: 'Support', desc: 'Audit assistance.' },
-            { title: 'Savings', desc: 'Minimize liabilities.' }
+            { title: 'Compliance', desc: 'Global regulation adherence.', icon: Globe },
+            { title: 'Strategy', desc: 'Risk management.', icon: ShieldCheck },
+            { title: 'Support', desc: 'Audit assistance.', icon: Users },
+            { title: 'Savings', desc: 'Minimize liabilities.', icon: PiggyBank }
         ]
     },
     'international-tax-compliance': {
@@ -550,10 +559,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/intl-tax.jpg',
         deliverables: ['Cross-border Adherence', 'Reporting', 'Treaty Navigation', 'Framework Mgmt'],
         benefits: [
-            { title: 'Adherence', desc: 'Follow local laws.' },
-            { title: 'Navigation', desc: 'Handle tax treaties.' },
-            { title: 'Risk', desc: 'Reduce penalties.' },
-            { title: 'Coverage', desc: 'Multiple jurisdictions.' }
+            { title: 'Adherence', desc: 'Follow local laws.', icon: Scale },
+            { title: 'Navigation', desc: 'Handle tax treaties.', icon: Map },
+            { title: 'Risk', desc: 'Reduce penalties.', icon: ShieldCheck },
+            { title: 'Coverage', desc: 'Multiple jurisdictions.', icon: Globe }
         ]
     },
     'regulatory-management': {
@@ -564,10 +573,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/intl-reg.jpg',
         deliverables: ['Requirement Meeting', 'Complex Law Navigation', 'Guidance', 'seamless Ops'],
         benefits: [
-            { title: 'Compliance', desc: 'Meet all standards.' },
-            { title: 'Guidance', desc: 'Expert advice.' },
-            { title: 'Operations', desc: 'Seamless functioning.' },
-            { title: 'Navigation', desc: 'Handle complexity.' }
+            { title: 'Compliance', desc: 'Meet all standards.', icon: BadgeCheck },
+            { title: 'Guidance', desc: 'Expert advice.', icon: Briefcase },
+            { title: 'Operations', desc: 'Seamless functioning.', icon: TrendingUp },
+            { title: 'Navigation', desc: 'Handle complexity.', icon: Map }
         ]
     },
 
@@ -580,10 +589,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/gift-setup.jpg',
         deliverables: ['Use Case Analysis', 'Cost-Benefit Analysis', 'Feasibility Study', 'Support'],
         benefits: [
-            { title: 'Analysis', desc: 'Thorough use case study.' },
-            { title: 'Feasibility', desc: 'Determine viability.' },
-            { title: 'Clarity', desc: 'Cost-benefit view.' },
-            { title: 'Support', desc: 'Comprehensive assistance.' }
+            { title: 'Analysis', desc: 'Thorough use case study.', icon: FileText },
+            { title: 'Feasibility', desc: 'Determine viability.', icon: Scale },
+            { title: 'Clarity', desc: 'Cost-benefit view.', icon: Calculator },
+            { title: 'Support', desc: 'Comprehensive assistance.', icon: Users }
         ]
     },
     'regulatory-tax-advisory-ifsc': {
@@ -594,10 +603,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/gift-tax.jpg',
         deliverables: ['Landscape Navigation', 'Structuring', 'Compliance', 'Advisory'],
         benefits: [
-            { title: 'Navigation', desc: 'Handle complexity.' },
-            { title: 'Structure', desc: 'Optimal setup.' },
-            { title: 'Compliance', desc: 'Stay legal.' },
-            { title: 'Knowledge', desc: 'Expert advice.' }
+            { title: 'Navigation', desc: 'Handle complexity.', icon: Map },
+            { title: 'Structure', desc: 'Optimal setup.', icon: Building2 },
+            { title: 'Compliance', desc: 'Stay legal.', icon: Scale },
+            { title: 'Knowledge', desc: 'Expert advice.', icon: Briefcase }
         ]
     },
     'legal-compliance-support': {
@@ -608,10 +617,10 @@ export const servicesData: Record<string, ServiceData> = {
         heroImage: '/images/services/gift-legal.jpg',
         deliverables: ['Ongoing Support', 'Operational Smoothness', 'Compliance', 'Assistance'],
         benefits: [
-            { title: 'Support', desc: 'Continuous assistance.' },
-            { title: 'Operations', desc: 'Smooth running.' },
-            { title: 'Compliance', desc: 'Regulatory adherence.' },
-            { title: 'Peace', desc: 'Hassle-free business.' }
+            { title: 'Support', desc: 'Continuous assistance.', icon: Users },
+            { title: 'Operations', desc: 'Smooth running.', icon: TrendingUp },
+            { title: 'Compliance', desc: 'Regulatory adherence.', icon: Scale },
+            { title: 'Peace', desc: 'Hassle-free business.', icon: Smile }
         ]
     }
 };

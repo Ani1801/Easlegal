@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { blogs, BlogPost } from '@/data/blogs';
-import { X, Calendar, User, Tag, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { blogs } from '@/data/blogs';
+import { Calendar, User, ArrowRight } from 'lucide-react';
 
 const Blogs = () => {
-    const [selectedBlog, setSelectedBlog] = useState<BlogPost | null>(null);
+    const navigate = useNavigate();
 
     // Split blogs into Featured (first one) and Grid (rest)
     const featuredBlog = blogs[0];
@@ -33,7 +33,7 @@ const Blogs = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="mb-16 bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer group hover:shadow-xl transition-all duration-300"
-                        onClick={() => setSelectedBlog(featuredBlog)}
+                        onClick={() => navigate(`/blog/${featuredBlog.id}`)}
                     >
                         <div className="grid grid-cols-1 lg:grid-cols-2">
                             <div className="h-64 lg:h-auto overflow-hidden relative">
@@ -86,7 +86,7 @@ const Blogs = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col group cursor-pointer"
-                            onClick={() => setSelectedBlog(blog)}
+                            onClick={() => navigate(`/blog/${blog.id}`)}
                         >
                             {/* Image Container */}
                             <div className="h-48 overflow-hidden relative">
@@ -134,58 +134,7 @@ const Blogs = () => {
             </div>
 
             {/* Reading Modal */}
-            <AnimatePresence>
-                {selectedBlog && (
-                    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            className="absolute inset-0 bg-black/40 backdrop-blur-sm"
-                            onClick={() => setSelectedBlog(null)}
-                        />
 
-                        <motion.div
-                            layoutId={`blog-${selectedBlog.id}`}
-                            className="bg-white w-full max-w-4xl max-h-[90vh] rounded-2xl shadow-2xl relative z-10 overflow-hidden flex flex-col"
-                        >
-                            {/* Modal Header */}
-                            <div className="relative h-64 sm:h-80 shrink-0">
-                                <img
-                                    src={selectedBlog.imageUrl}
-                                    alt={selectedBlog.title}
-                                    className="w-full h-full object-cover"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                                <button
-                                    onClick={() => setSelectedBlog(null)}
-                                    className="absolute top-4 right-4 bg-white/10 hover:bg-white/20 backdrop-blur-md p-2 rounded-full text-white transition-colors"
-                                >
-                                    <X size={24} />
-                                </button>
-                                <div className="absolute bottom-6 left-6 right-6 text-white">
-                                    <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm font-medium uppercase tracking-wider mb-2 opacity-90">
-                                        <span className="bg-[#0D9488] px-2 py-0.5 rounded">{selectedBlog.category.split(',')[0]}</span>
-                                        <span className="flex items-center gap-1"><Calendar size={14} /> {selectedBlog.date}</span>
-                                        <span className="flex items-center gap-1"><User size={14} /> {selectedBlog.author}</span>
-                                    </div>
-                                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight font-serif italic">
-                                        {selectedBlog.title}
-                                    </h2>
-                                </div>
-                            </div>
-
-                            {/* Modal Content - Scrollable */}
-                            <div className="flex-1 overflow-y-auto p-6 sm:p-10 bg-white">
-                                <div
-                                    className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-[#1A2B2C] prose-p:text-ink/80 prose-a:text-[#0D9488]"
-                                    dangerouslySetInnerHTML={{ __html: selectedBlog.content }}
-                                />
-                            </div>
-                        </motion.div>
-                    </div>
-                )}
-            </AnimatePresence>
         </div>
     );
 };
